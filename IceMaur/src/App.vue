@@ -6,12 +6,18 @@ import Link from './components/Link.vue';
   <header>
     <img class="header-logo" src="./assets/Images/IceMaur.png" />
   </header>
-  <Link href="https://github.com/IceMaur/IceMaur">IceMaur</Link>
+  <div id="icemaur-body">
+    <Link href="https://github.com/IceMaur/IceMaur">IceMaur</Link>
+  </div> 
 </template>
 
 <style scoped>
 header {
+  position: fixed;
   width: 100%;
+  background: white;
+  z-index: 1;
+  padding: 0.25rem 2rem;
 }
 
 .header-logo {
