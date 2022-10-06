@@ -20,6 +20,14 @@ a:visited {
   color: #728FCE;
 }
 
+.fa-github {
+  color: #fafafa;
+}
+
+.fa-spotify {
+  color: #1DB954;
+}
+
 #icemaur-body {
   padding: 5rem 2rem;
 }

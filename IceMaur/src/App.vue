@@ -7,7 +7,14 @@ import Link from './components/Link.vue';
     <img class="header-logo" src="./assets/Images/IceMaur.png" />
   </header>
   <div id="icemaur-body">
-    <Link href="https://github.com/IceMaur/IceMaur">IceMaur</Link>
+  <div>
+    <i class="fa-brands fa-github"></i>&nbsp;
+    <Link href="https://github.com/IceMaur/IceMaur">GitHub</Link>
+  </div>
+  <div>
+    <i class="fa-brands fa-spotify"></i>&nbsp;
+    <Link href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1">Spotify</Link>
+  </div>
   </div> 
 </template>
 
