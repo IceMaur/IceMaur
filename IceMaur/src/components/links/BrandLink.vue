@@ -1,6 +1,6 @@
 <template>
     <div>
-        <i :class="['fa-brands', className]"></i>&nbsp;
+        <i :class="['fa-brands', className]"></i>
         <Link :href="href">{{name}}</Link>
     </div>
 </template>
@@ -16,5 +16,5 @@ interface Props {
 
 const props = defineProps<Props>();
 const { href, name } = toRefs(props);
-const className = "fa-" + name.value.toLowerCase();
+const className = "fa-" + name.value.replace(" ", "-").toLowerCase();
 </script>

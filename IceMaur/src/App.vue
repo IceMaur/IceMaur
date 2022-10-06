@@ -8,6 +8,7 @@ import BrandLink from './components/links/BrandLink.vue';
   </header>
   <div id="icemaur-body">
     <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
+    <BrandLink href="https://stackoverflow.com/users/11383638/icemaur" name="Stack Overflow"></BrandLink>
     <BrandLink href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1" name="Spotify"></BrandLink>
   </div> 
 </template>
