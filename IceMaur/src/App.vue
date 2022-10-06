@@ -1,5 +1,5 @@
 <script setup>
-import Link from './components/Link.vue';
+import BrandLink from './components/links/BrandLink.vue';
 </script>
 
 <template>
@@ -7,14 +7,8 @@ import Link from './components/Link.vue';
     <img class="header-logo" src="./assets/Images/IceMaur.png" />
   </header>
   <div id="icemaur-body">
-  <div>
-    <i class="fa-brands fa-github"></i>&nbsp;
-    <Link href="https://github.com/IceMaur/IceMaur">GitHub</Link>
-  </div>
-  <div>
-    <i class="fa-brands fa-spotify"></i>&nbsp;
-    <Link href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1">Spotify</Link>
-  </div>
+    <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
+    <BrandLink href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1" name="Spotify"></BrandLink>
   </div> 
 </template>
 
