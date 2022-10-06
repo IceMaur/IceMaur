@@ -15,12 +15,12 @@ const iceMaurAuthor : Author = {
   </header>
   <div id="icemaur-body">
     <h1>The IceMaur</h1>
-    <P>Better an unique name than a good name...</P>
+    <P>Welcome to the most random place!</P>
     <h2>Quote cards</h2>
     <div class="quote-cards">
       <QouteCard :author="iceMaurAuthor">Better an unique name than a good name.</QouteCard>
       <QouteCard>Sustainability can also be beautiful.</QouteCard>
-      <QouteCard :author="iceMaurAuthor">I have never seen a happy Dutchman with a German flag.</QouteCard>
+      <QouteCard :author="iceMaurAuthor">I have never seen a happy Dutchman with a German flag before.</QouteCard>
       <QouteCard>What the flip? Why on earth do you want to store a boolean as a string.</QouteCard>
       <QouteCard>I had my hairs in my head.</QouteCard>
     </div>
