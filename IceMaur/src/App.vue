@@ -7,7 +7,11 @@ import BrandLink from './components/links/BrandLink.vue';
     <img class="header-logo" src="./assets/Images/IceMaur.png" />
   </header>
   <div id="icemaur-body">
-    <h1>The IceMaur links</h1>
+    <h1>The IceMaur</h1>
+    <P>Better an unique name than a good name...</P>
+    <h2>Quote cards</h2>
+    <p>Coming soon...</p>
+    <h2>Links</h2>
     <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
     <BrandLink href="https://stackoverflow.com/users/11383638/icemaur" name="Stack Overflow"></BrandLink>
     <BrandLink href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1" name="Spotify"></BrandLink>
