@@ -1,12 +1,11 @@
 <template>
     <div>
         <i :class="['fa-brands', className]"></i>
-        <Link :href="href">{{name}}</Link>
+        <a :href="href" target="_blank">{{name}}</a>
     </div>
 </template>
 
 <script setup lang="ts">
-import Link from './Link.vue';
 import { toRefs } from 'vue';
 
 interface Props {
