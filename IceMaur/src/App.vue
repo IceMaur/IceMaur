@@ -13,7 +13,7 @@ import BrandLink from './components/links/BrandLink.vue';
   </div> 
 </template>
 
-<style scoped>
+<style scoped lang="less">
 header {
   position: fixed;
   top: 0;
