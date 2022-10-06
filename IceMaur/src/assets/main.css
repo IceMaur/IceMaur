@@ -1,6 +1,8 @@
 :root {
+  --color-main: #fff;
   --color-primary: #100B50;
   --color-secondary: #22202E;
+  --color-tertiary: #C0C0C0;
 }
 
 body {
@@ -8,6 +10,14 @@ body {
   background: var(--color-primary);
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: #3BB9FF;
+}
+
+a:visited {
+  color: #728FCE;
 }
 
 #icemaur-body {

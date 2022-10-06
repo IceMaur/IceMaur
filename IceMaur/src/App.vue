@@ -19,7 +19,7 @@ header {
   width: 100%;
   padding: 0.25rem 2rem;
   border: 1px var(--color-secondary) solid;
-  background: white;
+  background: linear-gradient(125deg, var(--color-main) 70%, var(--color-tertiary) 30%);
   z-index: 1;
 }
 
