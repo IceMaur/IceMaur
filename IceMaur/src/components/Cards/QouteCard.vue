@@ -35,6 +35,11 @@ const { author } = toRefs(props);
     justify-content: center;
     text-align: center;
     font-style: italic;
+    transition: all .3s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 
     & p, 
     span,
