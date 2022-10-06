@@ -24,11 +24,13 @@ const iceMaurAuthor : Author = {
       <QouteCard>What the flip? Why on earth do you want to store a boolean as a string.</QouteCard>
       <QouteCard>I had my hairs in my head.</QouteCard>
     </div>
+  </div> 
+  <footer>
     <h2>Links</h2>
     <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
     <BrandLink href="https://stackoverflow.com/users/11383638/icemaur" name="Stack Overflow"></BrandLink>
     <BrandLink href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1" name="Spotify"></BrandLink>
-  </div> 
+  </footer>
 </template>
 
 <style scoped lang="less">
@@ -51,5 +53,10 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+footer {
+  background: linear-gradient(125deg, var(--color-secondary) 70%, var(--color-main) 30%);
+  padding: 1.5rem 2rem 4rem;
 }
 </style>
