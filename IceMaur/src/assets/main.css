@@ -1,4 +1,14 @@
-@import "./base.css";
+:root {
+  --color-primary: #100B50;
+  --color-secondary: #22202E;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-primary);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
 
 #icemaur-body {
   padding: 5rem 2rem;

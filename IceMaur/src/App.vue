@@ -14,10 +14,13 @@ import Link from './components/Link.vue';
 <style scoped>
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  padding: 0.25rem 2rem;
+  border: 1px var(--color-secondary) solid;
   background: white;
   z-index: 1;
-  padding: 0.25rem 2rem;
 }
 
 .header-logo {
