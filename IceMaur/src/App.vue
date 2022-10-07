@@ -3,10 +3,12 @@ import { ref } from 'vue';
 import BrandLink from './components/links/BrandLink.vue';
 import Home from './pages/Home.vue';
 import Spotify from './pages/Spotify.vue';
+import BlogOverview from './pages/BlogOverview.vue';
 
 const routes = {
   '/': Home,
-  '/spotify': Spotify
+  '/spotify': Spotify,
+  '/blog': BlogOverview
 }
 
 function getCurrentView() {
@@ -32,6 +34,7 @@ window.addEventListener('hashchange', () => {
     <a href="#/">
       <img class="header-logo" src="./assets/Images/IceMaur.png" />
     </a>
+    <a class="header-link" href="#/blog">Blog</a>
     <a class="header-link" href="#/spotify">Spotify</a>
   </header>
   <div id="icemaur-body">
@@ -69,8 +72,17 @@ header {
   }
 
   &-link {
-    margin-left: auto;
-    margin-right: 5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    &:nth-child(2) {
+      margin-left: auto;
+    }
+
+    &:last-of-type {
+      margin-right: 5rem;
+    }
+    
     color: var(--color-secondary);
     text-decoration: none;
     font-weight: bold;
