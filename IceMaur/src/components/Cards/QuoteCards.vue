@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ContentFulClient from '../../data/ContentFulClient';
+import ContentfulClient from '../../data/ContentfulClient';
 import Quote from '../../objects/Quote';
 import QouteCard from './QouteCard.vue';
 
-const quotes = await ContentFulClient.getEntries<Quote>({
+const quotes = await ContentfulClient.getEntries<Quote>({
     content_type: 'quote',
 });
 </script>
