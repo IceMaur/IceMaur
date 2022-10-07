@@ -1,18 +1,27 @@
 <script setup lang="ts">
 import BrandLink from './components/links/BrandLink.vue';
 import Home from './pages/Home.vue';
+import Spotify from './pages/Spotify.vue';
+
+const routes = {
+  '/': Home,
+  '/spotify': Spotify
+}
+
+const currentView =  routes[window.location.hash.slice(1) || '/'];
+const isSpotify = currentView === Spotify;
 </script>
 
 <template>
-  <header>
+  <header :class="{ spotify: isSpotify }">
     <a href="/">
       <img class="header-logo" src="./assets/Images/IceMaur.png" />
     </a>
   </header>
   <div id="icemaur-body">
-    <Home></Home>
+    <component :is="currentView" />
   </div> 
-  <footer>
+  <footer :class="{ spotify: isSpotify }">
     <h2>Links</h2>
     <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
     <BrandLink href="https://stackoverflow.com/users/11383638/icemaur" name="Stack Overflow"></BrandLink>
@@ -30,6 +39,10 @@ header {
   border: 1px var(--color-secondary) solid;
   background: linear-gradient(125deg, var(--color-main) 70%, var(--color-tertiary) 30%);
   z-index: 1;
+
+  &.spotify {
+    background: linear-gradient(125deg, var(--color-main) 70%, var(--color-spotify-primary) 30%);
+  }
 }
 
 .header-logo {
@@ -39,5 +52,9 @@ header {
 footer {
   background: linear-gradient(125deg, var(--color-secondary) 70%, var(--color-main) 30%);
   padding: 1.5rem 2rem 4rem;
+
+  &.spotify {
+    background: linear-gradient(125deg, var(--color-spotify-secondary) 70%, var(--color-spotify-primary) 30%);
+  }
 }
 </style>
