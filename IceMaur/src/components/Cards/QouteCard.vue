@@ -5,7 +5,7 @@
         </p>
         <div v-if="author?.name" class="author">
             <h3 class="author-name">{{author.name}}</h3>
-            <img v-if="author?.imageUrl" class="author-image" :src="author.imageUrl" />
+            <img v-if="author.picture?.fields.file.url" class="author-image" :alt="author.picture.fields.description" :src="author.picture.fields.file.url" />
         </div>
     </div>
 </template>

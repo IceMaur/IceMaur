@@ -1,4 +1,6 @@
+import * as contentful from 'contentful';
+
 export default interface Author {
     name: string,
-    imageUrl: string
+    picture: contentful.Asset
 }

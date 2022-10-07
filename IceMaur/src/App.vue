@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import BrandLink from './components/links/BrandLink.vue';
-import QouteCard from './components/Cards/QouteCard.vue';
-import Author from './objects/Author';
-
-const iceMaurAuthor : Author = {
-  name: "IceMaur",
-  imageUrl: "/src/assets/Images/IceMaur.png"
-}
+import QuoteCards from './components/Cards/QuoteCards.vue';
 </script>
 
 <template>
@@ -16,14 +10,9 @@ const iceMaurAuthor : Author = {
   <div id="icemaur-body">
     <h1>The IceMaur</h1>
     <P>Welcome to the most random place!</P>
-    <h2>Quote cards</h2>
-    <div class="quote-cards">
-      <QouteCard :author="iceMaurAuthor">Better an unique name than a good name.</QouteCard>
-      <QouteCard>Sustainability can also be beautiful.</QouteCard>
-      <QouteCard :author="iceMaurAuthor">I have never seen a happy Dutchman with a German flag before.</QouteCard>
-      <QouteCard>What the flip? Why on earth do you want to store a boolean as a string.</QouteCard>
-      <QouteCard>I had my hairs in my head.</QouteCard>
-    </div>
+    <suspense>
+      <QuoteCards></QuoteCards>
+    </suspense>
   </div> 
   <footer>
     <h2>Links</h2>
@@ -47,12 +36,6 @@ header {
 
 .header-logo {
   height: 4rem;
-}
-
-.quote-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 footer {
