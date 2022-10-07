@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import BrandLink from './components/links/BrandLink.vue';
 import Home from './pages/Home.vue';
 import Spotify from './pages/Spotify.vue';
@@ -8,15 +9,30 @@ const routes = {
   '/spotify': Spotify
 }
 
-const currentView =  routes[window.location.hash.slice(1) || '/'];
-const isSpotify = currentView === Spotify;
+function getCurrentView() {
+  return routes[window.location.hash.slice(1) || '/'];
+}
+
+const currentView = ref(getCurrentView());
+
+function getIsSpotify():boolean {
+  return getCurrentView() === Spotify;
+}
+
+const isSpotify = ref(getIsSpotify());
+
+window.addEventListener('hashchange', () => {
+  currentView.value = getCurrentView();
+  isSpotify.value = getIsSpotify();
+});
 </script>
 
 <template>
   <header :class="{ spotify: isSpotify }">
-    <a href="/">
+    <a href="#/">
       <img class="header-logo" src="./assets/Images/IceMaur.png" />
     </a>
+    <a class="header-link" href="#/spotify">Spotify</a>
   </header>
   <div id="icemaur-body">
     <component :is="currentView" />
@@ -39,14 +55,26 @@ header {
   border: 1px var(--color-secondary) solid;
   background: linear-gradient(125deg, var(--color-main) 70%, var(--color-tertiary) 30%);
   z-index: 1;
+  display: flex;
+  align-items: center;
 
   &.spotify {
     background: linear-gradient(125deg, var(--color-main) 70%, var(--color-spotify-primary) 30%);
   }
 }
 
-.header-logo {
-  height: 4rem;
+.header { 
+  &-logo {
+    height: 4rem;
+  }
+
+  &-link {
+    margin-left: auto;
+    margin-right: 5rem;
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
 
 footer {
