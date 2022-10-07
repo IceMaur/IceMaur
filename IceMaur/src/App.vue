@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BrandLink from './components/links/BrandLink.vue';
-import QuoteCards from './components/Cards/QuoteCards.vue';
+import Home from './pages/Home.vue';
 </script>
 
 <template>
@@ -8,11 +8,7 @@ import QuoteCards from './components/Cards/QuoteCards.vue';
     <img class="header-logo" src="./assets/Images/IceMaur.png" />
   </header>
   <div id="icemaur-body">
-    <h1>The IceMaur</h1>
-    <P>Welcome to the most random place!</P>
-    <suspense>
-      <QuoteCards></QuoteCards>
-    </suspense>
+    <Home></Home>
   </div> 
   <footer>
     <h2>Links</h2>
