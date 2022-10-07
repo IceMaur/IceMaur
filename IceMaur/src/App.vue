@@ -5,7 +5,9 @@ import Home from './pages/Home.vue';
 
 <template>
   <header>
-    <img class="header-logo" src="./assets/Images/IceMaur.png" />
+    <a href="/">
+      <img class="header-logo" src="./assets/Images/IceMaur.png" />
+    </a>
   </header>
   <div id="icemaur-body">
     <Home></Home>
