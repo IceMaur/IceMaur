@@ -1,9 +1,12 @@
 <template>
     <div class="article-cards">
         <div v-for="article in articles.items" class="article-card">
-            <a>
+            <router-link :to="{name: 'blogDetail',
+                params: {
+                   title: article.fields.title
+                }}">
                 <h2>{{article.fields.title}}</h2>
-            </a>
+            </router-link>
         </div>
     </div>
 </template>

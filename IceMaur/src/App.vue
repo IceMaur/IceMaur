@@ -1,46 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 import BrandLink from './components/links/BrandLink.vue';
-import Home from './pages/Home.vue';
-import Spotify from './pages/Spotify.vue';
-import BlogOverview from './pages/BlogOverview.vue';
 
-const routes = {
-  '/': Home,
-  '/spotify': Spotify,
-  '/blog': BlogOverview
-}
-
-function getCurrentView() {
-  return routes[window.location.hash.slice(1) || '/'];
-}
-
-const currentView = ref(getCurrentView());
-
-function getIsSpotify():boolean {
-  return getCurrentView() === Spotify;
-}
-
-const isSpotify = ref(getIsSpotify());
-
-window.addEventListener('hashchange', () => {
-  currentView.value = getCurrentView();
-  isSpotify.value = getIsSpotify();
-});
+const route = ref(useRoute());
 </script>
 
 <template>
-  <header :class="{ spotify: isSpotify }">
-    <a href="#/">
+  <header :class="route?.meta?.pageClass">
+    <router-link to="/">
       <img class="header-logo" src="./assets/Images/IceMaur.png" />
-    </a>
-    <a class="header-link" href="#/blog">Blog</a>
-    <a class="header-link" href="#/spotify">Spotify</a>
+    </router-link>
+    <router-link class="header-link" to="/blog">Blog</router-link>
+    <router-link class="header-link" to="/spotify">Spotify</router-link>
   </header>
   <div id="icemaur-body">
-    <component :is="currentView" />
+    <router-view></router-view>
   </div> 
-  <footer :class="{ spotify: isSpotify }">
+  <footer :class="route?.meta?.pageClass">
     <h2>Links</h2>
     <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
     <BrandLink href="https://stackoverflow.com/users/11383638/icemaur" name="Stack Overflow"></BrandLink>
