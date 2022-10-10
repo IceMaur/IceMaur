@@ -2,15 +2,16 @@
     <img class="article-image" :alt="article.image.fields.title" :src="article.image.fields.file.url" />
     <div class="article-content">
         <h1>{{article.title}}</h1>
-        <RichTextRenderer :document="article.content" :nodeRenderers="null" :markRenderers="null" />
+        <div v-html="articleContent"></div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import RichTextRenderer from 'contentful-rich-text-vue-renderer';
 import ContentfulClient from '../data/ContentfulClient';
 import Article from '../objects/Article';
+import { BLOCKS } from '@contentful/rich-text-types';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 const route = useRoute();
 const title = route.params.title;
@@ -19,6 +20,22 @@ const articles = await ContentfulClient.getEntries<Article>({
     'fields.title': title
 });
 const article = articles.items[0].fields;
+const options = {
+    renderNode: { 
+            [BLOCKS.EMBEDDED_ASSET]: (asset: { data: { target: { fields: { title: any; description: any, file: any; }; }; }; }) => {
+            const { title, description, file } = asset.data.target.fields;
+            const mimeType = file.contentType;
+            const mimeGroup = mimeType.split('/')[0];
+            switch (mimeGroup) {
+                case 'image':
+                return `<figure><img class="article-content-image" alt="${title}" src="${file.url}" />
+                    <figcaption>${description}</figcaption>
+                    </figure>`;
+            }
+        }
+    }
+}
+const articleContent = documentToHtmlString(article.content, options);
 </script>
 
 <style scoped lang="less">

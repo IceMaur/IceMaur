@@ -21,7 +21,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+figcaption {
   color: var(--color-main);
 }
 
@@ -35,6 +36,12 @@ a {
   &:visited {
     color: #728FCE;
   }
+}
+
+figcaption {
+  font-size: 0.825rem;
+  font-style: italic;
+  text-align: center;
 }
 
 .fa {
@@ -58,4 +65,13 @@ a {
 #icemaur-body {
   padding: 5rem 2rem;
   overflow: hidden;
+}
+
+.article-content-image {
+  width: 48rem;
+  max-width: 100vw;
+  object-fit: cover;
+  max-height: 30rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
