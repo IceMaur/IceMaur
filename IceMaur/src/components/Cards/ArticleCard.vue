@@ -65,11 +65,11 @@ const { article } = toRefs(props);
     }
 
     @media only screen and (min-width: 992px) {
-        --article-max-width: 33%;
+        --article-max-width: 43%;
     }
 
     @media only screen and (min-width: 1200px) {
-        --article-max-width: 25%;
+        --article-max-width: 30%;
     }
 }
 </style>

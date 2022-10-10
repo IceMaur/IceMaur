@@ -4,8 +4,13 @@
     <suspense>
       <QuoteCards></QuoteCards>
     </suspense>
+    <h2>Article cards</h2>
+    <suspense>
+      <ArticleCards></ArticleCards>
+    </suspense>
 </template>
 
 <script setup lang="ts">
-    import QuoteCards from '../components/Cards/QuoteCards.vue';
+import QuoteCards from '../components/Cards/QuoteCards.vue';
+import ArticleCards from '../components/Cards/ArticleCards.vue';
 </script>

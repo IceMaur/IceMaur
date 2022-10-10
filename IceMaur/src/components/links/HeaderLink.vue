@@ -1,5 +1,5 @@
 <template>
-   <router-link class="header-link" :to="href">{{name}}</router-link>
+   <router-link class="header-link" :to="`/${href}`">{{name}}</router-link>
 </template>
 
 <script setup lang="ts">
