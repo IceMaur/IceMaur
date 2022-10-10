@@ -6,7 +6,7 @@
     </suspense>
     <h2>Article cards</h2>
     <suspense>
-      <ArticleCards></ArticleCards>
+      <ArticleCards :max="4"></ArticleCards>
     </suspense>
 </template>
 

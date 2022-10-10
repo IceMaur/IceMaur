@@ -8,9 +8,17 @@
 import ContentfulClient from '../../data/ContentfulClient';
 import Article from '../../objects/Article';
 import ArticleCard from './ArticleCard.vue';
+import { toRefs } from 'vue';
 
+interface Props {
+    max?: number;
+}
+
+const props = defineProps<Props>();
+const { max } = toRefs(props);
 const articles = await ContentfulClient.getEntries<Article>({
     content_type: 'article',
+    "limit": max?.value ?? 100
 });
 </script>
 
