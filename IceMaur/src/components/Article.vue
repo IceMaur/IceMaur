@@ -32,10 +32,8 @@ const article = articles.items[0].fields;
 }
 
 .article-content {
-    @media only screen and (min-width: 1200px) {
-        max-width: 48rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
