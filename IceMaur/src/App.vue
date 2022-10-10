@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+import HeaderLink from './components/links/HeaderLink.vue';
 import BrandLink from './components/links/BrandLink.vue';
 
 const route = ref(useRoute());
+const headerLinks = ["Blog", "Spotify"]
 </script>
 
 <template>
@@ -11,8 +13,7 @@ const route = ref(useRoute());
     <router-link to="/">
       <img class="header-logo" src="./assets/Images/IceMaur.png" />
     </router-link>
-    <router-link class="header-link" to="/blog">Blog</router-link>
-    <router-link class="header-link" to="/spotify">Spotify</router-link>
+    <HeaderLink v-for="headerLink in headerLinks" :name="headerLink"></HeaderLink>
   </header>
   <div id="icemaur-body">
     <router-view></router-view>
@@ -43,27 +44,8 @@ header {
   }
 }
 
-.header { 
-  &-logo {
-    height: 4rem;
-  }
-
-  &-link {
-    margin-left: 1rem;
-    margin-right: 1rem;
-
-    &:nth-child(2) {
-      margin-left: auto;
-    }
-
-    &:last-of-type {
-      margin-right: 5rem;
-    }
-    
-    color: var(--color-secondary);
-    text-decoration: none;
-    font-weight: bold;
-  }
+.header-logo {
+  height: 4rem;
 }
 
 footer {
