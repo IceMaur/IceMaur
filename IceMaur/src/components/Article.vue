@@ -1,16 +1,21 @@
 <template>
-    <img class="article-image" :alt="article.image.fields.title" :src="article.image.fields.file.url" />
-    <div class="article-content">
-        <h1>{{article.title}}</h1>
-        <div v-html="articleContent"></div>
-        <AuthorCard :author="article.author.fields"></AuthorCard>
-    </div>
-    <div v-if="article.relatedArticles" class="related-articles">
-        <h2>Related articles</h2>
-        <div class="related-article-cards">
-            <ArticleCard v-for="relatedArticle in article.relatedArticles" :article="relatedArticle.fields"></ArticleCard>
+    <template v-if="article">
+        <img class="article-image" :alt="article.image.fields.title" :src="article.image.fields.file.url" />
+        <div class="article-content">
+            <h1>{{article.title}}</h1>
+            <div v-html="articleContent"></div>
+            <AuthorCard :author="article.author.fields"></AuthorCard>
         </div>
-    </div>
+        <div v-if="article.relatedArticles" class="related-articles">
+            <h2>Related articles</h2>
+            <div class="related-article-cards">
+                <ArticleCard v-for="relatedArticle in article.relatedArticles" :article="relatedArticle.fields"></ArticleCard>
+            </div>
+        </div>
+    </template>
+    <template v-else>
+        <NotFound></NotFound>
+    </template>
 </template>
 
 <script setup lang="ts">
@@ -21,6 +26,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Article from '../objects/Article';
 import AuthorCard from './Cards/AuthorCard.vue';
 import ArticleCard from './Cards/ArticleCard.vue';
+import NotFound from './NotFound.vue';
 
 const route = useRoute();
 const title = route.params.title;
@@ -28,7 +34,7 @@ const articles = await ContentfulClient.getEntries<Article>({
     content_type: 'article',
     'fields.title': title
 });
-const article = articles.items[0].fields;
+const article = articles.items[0]?.fields;
 const options = {
     renderNode: { 
             [BLOCKS.EMBEDDED_ASSET]: (asset: { data: { target: { fields: { title: any; description: any, file: any; }; }; }; }) => {
@@ -44,7 +50,7 @@ const options = {
         }
     }
 };
-const articleContent = documentToHtmlString(article.content, options);
+const articleContent = documentToHtmlString(article?.content, options);
 </script>
 
 <style scoped lang="less">
