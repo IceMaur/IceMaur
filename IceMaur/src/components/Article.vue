@@ -3,22 +3,17 @@
     <div class="article-content">
         <h1>{{article.title}}</h1>
         <div v-html="articleContent"></div>
-        <div v-if="article.author?.fields.name" class="author-card">
-            <img v-if="article.author.fields.picture?.fields.file.url" 
-                class="author-card-image" 
-                :alt="article.author.fields.picture.fields.description" 
-                :src="article.author.fields.picture.fields.file.url" />
-            <h2 class="author-card-name">{{article.author.fields.name}}</h2>
-        </div>
+        <AuthorCard :author="article.author.fields"></AuthorCard>
     </div>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import ContentfulClient from '../data/ContentfulClient';
-import Article from '../objects/Article';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Article from '../objects/Article';
+import AuthorCard from './Cards/AuthorCard.vue';
 
 const route = useRoute();
 const title = route.params.title;
@@ -59,32 +54,5 @@ const articleContent = documentToHtmlString(article.content, options);
     max-width: 40rem;
     margin-left: auto;
     margin-right: auto;
-}
-
-.author-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-main);
-    padding: 0.5rem 2rem;
-    border-left: 0px solid var(--color-tertiary);
-    border-right: 8px solid var(--color-tertiary);
-    border-bottom: 0.5rem solid var(--color-secondary);
-    width: max-content;
-    margin-left: auto;
-    transform: skew(-6deg);
-    box-shadow: 0.25rem 0.125rem 1rem var(--color-tertiary);
-
-    &-image {
-        object-fit: cover;
-        width: 4rem;
-        height: 4rem;
-        margin-left: auto;
-        margin-right: 0.5rem;
-    }
-
-    &-name {
-        color: var(--color-primary);
-    }
 }
 </style>
