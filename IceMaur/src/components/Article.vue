@@ -34,7 +34,7 @@ const options = {
             }
         }
     }
-}
+};
 const articleContent = documentToHtmlString(article.content, options);
 </script>
 
