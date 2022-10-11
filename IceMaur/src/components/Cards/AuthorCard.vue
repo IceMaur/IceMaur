@@ -1,10 +1,12 @@
 <template>
     <div v-if="author?.name" class="author-card">
-        <img v-if="author.picture?.fields.file.url" 
-            class="author-card-image" 
-            :alt="author.picture.fields.description" 
-            :src="author.picture.fields.file.url" />
-        <h2 class="author-card-name">{{author.name}}</h2>
+        <a target="_blank" :href="author.link">
+            <img v-if="author.picture?.fields.file.url" 
+                class="author-card-image" 
+                :alt="author.picture.fields.description" 
+                :src="author.picture.fields.file.url" />
+            <h2 class="author-card-name">{{author.name}}</h2>
+        </a>
     </div>
 </template>
 
@@ -22,18 +24,33 @@ const { author } = toRefs(props);
 
 <style scoped lang="less">
 .author-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: var(--color-main);
     padding: 0.5rem 2rem;
-    border-left: 0px solid var(--color-tertiary);
-    border-right: 8px solid var(--color-tertiary);
-    border-bottom: 0.5rem solid var(--color-secondary);
     width: max-content;
     margin-left: auto;
-    transform: skew(-6deg);
-    box-shadow: 0.25rem 0.125rem 1rem var(--color-tertiary);
+    border: 0.125rem solid var(--color-tertiary);
+    border-radius: 16px;
+    transition: all .3s;
+
+    &:hover {
+        border-top: 0.0625rem solid var(--color-tertiary);
+        border-left: 0.0625rem solid var(--color-tertiary);
+        border-right: 1rem solid var(--color-tertiary);
+        border-bottom: 0.5rem solid var(--color-secondary);
+        transform: skew(-6deg);
+        box-shadow: 0.25rem 0.125rem 1rem var(--color-tertiary);
+    }
+
+    & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+
+        &:hover {
+            opacity: unset;
+        }
+    }
 
     &-image {
         object-fit: cover;
