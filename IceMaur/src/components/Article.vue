@@ -5,6 +5,12 @@
         <div v-html="articleContent"></div>
         <AuthorCard :author="article.author.fields"></AuthorCard>
     </div>
+    <div v-if="article.relatedArticles" class="related-articles">
+        <h2>Related articles</h2>
+        <div class="related-article-cards">
+            <ArticleCard v-for="relatedArticle in article.relatedArticles" :article="relatedArticle.fields"></ArticleCard>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -14,6 +20,7 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Article from '../objects/Article';
 import AuthorCard from './Cards/AuthorCard.vue';
+import ArticleCard from './Cards/ArticleCard.vue';
 
 const route = useRoute();
 const title = route.params.title;
@@ -54,5 +61,14 @@ const articleContent = documentToHtmlString(article.content, options);
     max-width: 40rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.related-articles {
+    margin-top: 3rem;
+}
+
+.related-article-cards {
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>

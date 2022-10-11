@@ -16,7 +16,7 @@ const headerLinks = ["Blog", "Spotify"]
     <HeaderLink v-for="headerLink in headerLinks" :name="headerLink"></HeaderLink>
   </header>
   <div id="icemaur-body">
-    <router-view></router-view>
+    <router-view :key="route.path"></router-view>
   </div> 
   <footer :class="route?.meta?.pageClass">
     <h2>Links</h2>
