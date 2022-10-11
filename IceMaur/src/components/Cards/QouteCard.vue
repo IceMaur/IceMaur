@@ -71,6 +71,7 @@ const { author } = toRefs(props);
     }
 
     &-image {
+        object-fit: cover;
         width: 2rem;
         height: 2rem;
     }
