@@ -5,7 +5,7 @@ import HeaderLink from './components/links/HeaderLink.vue';
 import BrandLink from './components/links/BrandLink.vue';
 
 const route = ref(useRoute());
-const headerLinks = ["Blog", "Spotify"]
+const headerLinks = ["Blog"]
 </script>
 
 <template>

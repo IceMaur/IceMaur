@@ -10,7 +10,7 @@ import Author from './pages/Author.vue'
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/spotify', component: Spotify, name: "spotify", meta: { pageClass: 'spotify'} },
+    { path: '/spotify/:spotifyPlaylistId', component: Spotify, name: "spotify", meta: { pageClass: 'spotify'} },
     { path: '/blog', component: BlogOverView },
     { path: '/blog/:title', component: BlogDetail, name: "blogDetail" },
     { path: '/author/:name', component: Author, name: "author", meta: { pageClass: 'author-page'}  },
