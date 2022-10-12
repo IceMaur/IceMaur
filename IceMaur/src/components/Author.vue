@@ -10,6 +10,18 @@
                 </a>
             </div>
         </div>
+        <template v-if="quotes?.items">
+            <h2>Quotes</h2>
+            <div class="author-quotes">
+                <QuoteCard v-for="quote in quotes.items" :author="quote.fields.author.fields">{{quote.fields.quote}}</QuoteCard>
+            </div>
+        </template>
+        <template v-if="articles?.items">
+            <h2>Articles</h2>
+            <div class="author-articles">
+                <ArticleCard v-for="article in articles.items" :article="article.fields"></ArticleCard>
+            </div>
+        </template>
     </template>
     <template v-else>
         <NotFound></NotFound>
@@ -21,6 +33,10 @@ import { useRoute } from 'vue-router';
 import ContentfulClient from '../data/ContentfulClient';
 import NotFound from './NotFound.vue';
 import Author from '../objects/Author';
+import Article from '../objects/Article';
+import ArticleCard from './Cards/ArticleCard.vue';
+import QuoteCard from './Cards/QuoteCard.vue';
+import Quote from '../objects/Quote';
 
 const route = useRoute();
 const name = route.params.name;
@@ -29,6 +45,16 @@ const authors = await ContentfulClient.getEntries<Author>({
     'fields.name': name
 });
 const author = authors.items[0]?.fields;
+const quotes = await ContentfulClient.getEntries<Quote>({
+    content_type: 'quote',
+    'fields.author.sys.contentType.sys.id': 'author',
+    'fields.author.fields.name': name
+});
+const articles = await ContentfulClient.getEntries<Article>({
+    content_type: 'article',
+    'fields.author.sys.contentType.sys.id': 'author',
+    'fields.author.fields.name': name
+});
 </script>
 
 <style scoped lang="less">
@@ -53,6 +79,12 @@ const author = authors.items[0]?.fields;
             height: 6.5rem;
             margin-right: 0.5rem;
         }
+    }
+
+    &-articles,
+    &-quotes {
+        display: flex;
+        flex-wrap: wrap;
     }
 }
 </style>
