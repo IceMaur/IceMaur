@@ -27,6 +27,7 @@ const { author } = toRefs(props);
     background-color: var(--color-main);
     padding: 0.5rem 2rem;
     width: max-content;
+    margin-top: 2rem;
     margin-left: auto;
     border: 0.125rem solid var(--color-tertiary);
     border-radius: 16px;

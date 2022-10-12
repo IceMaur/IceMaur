@@ -66,14 +66,23 @@ const articleContent = documentToHtmlString(article?.content, options);
     object-fit: cover;
     max-height: 60vh;
     margin-top: -0.25rem;
+    margin-bottom: 2rem;
     margin-left: 50%;
     transform: translateX(-50%);
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 3rem;
+    }
 }
 
 .article-content {
     max-width: 40rem;
     margin-left: auto;
     margin-right: auto;
+
+    & h1 {
+        margin-top: 0;
+    }
 }
 
 .related-articles {
