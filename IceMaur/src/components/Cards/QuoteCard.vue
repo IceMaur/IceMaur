@@ -24,7 +24,7 @@ const props = defineProps<Props>();
 const { author } = toRefs(props);
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 .quote {
     --quote-max-width: 100%;
     --quote-space-between: 0rem;

@@ -15,7 +15,7 @@ const headerLinks = ["Blog", "Spotify"]
     </router-link>
     <HeaderLink v-for="headerLink in headerLinks" :name="headerLink"></HeaderLink>
   </header>
-  <div id="icemaur-body">
+  <div id="icemaur-body" :class="route?.meta?.pageClass">
     <router-view :key="route.path"></router-view>
   </div> 
   <footer :class="route?.meta?.pageClass">
@@ -42,10 +42,19 @@ header {
   &.spotify {
     background: linear-gradient(125deg, var(--color-main) 70%, var(--color-spotify-primary) 30%);
   }
+
+  &.author-page {
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  }
 }
 
 .header-logo {
   height: 4rem;
+}
+
+#icemaur-body {
+  background-color: var(--color-secondary);
 }
 
 footer {
@@ -54,6 +63,10 @@ footer {
 
   &.spotify {
     background: linear-gradient(125deg, var(--color-spotify-secondary) 70%, var(--color-spotify-primary) 30%);
+  }
+
+  &.author-page {
+    background: linear-gradient(125deg, var(--color-tertiary) 70%, var(--color-main) 30%);
   }
 }
 </style>
