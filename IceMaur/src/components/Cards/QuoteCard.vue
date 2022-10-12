@@ -27,11 +27,12 @@ const { author } = toRefs(props);
 <style lang="less">
 .quote {
     --quote-max-width: 100%;
+    --quote-space-between: 0rem;
     background: linear-gradient(125deg, var(--color-main) 70%, var(--color-tertiary) 30%);
     padding: 2rem;
     border-radius: 1rem;
     margin: 1rem;
-    width: calc(var(--quote-max-width) - 8rem);
+    width: calc(var(--quote-max-width) - var(--quote-space-between));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,6 +63,7 @@ const { author } = toRefs(props);
     }
 
     @media only screen and (min-width: 768px) {
+        --quote-space-between: 8rem;
         --quote-max-width: 50%;
     }
 

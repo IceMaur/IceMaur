@@ -27,10 +27,11 @@ const { article } = toRefs(props);
 <style scoped lang="less">
 .article-card {
     --article-max-width: 100%;
+    --article-space-between: 0rem;
     background-color: var(--color-main);
     border-radius: 1rem;
     margin: 1rem;
-    width: calc(var(--article-max-width) - 8rem);
+    width: calc(var(--article-max-width) - var(--article-space-between));
     transition: all .3s;
     overflow: hidden;
 
@@ -61,6 +62,7 @@ const { article } = toRefs(props);
     }
 
     @media only screen and (min-width: 768px) {
+        --article-space-between: 8rem;
         --article-max-width: 50%;
     }
 
