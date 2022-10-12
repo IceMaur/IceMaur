@@ -1,14 +1,12 @@
 <template>
-    <template v-if="author">
-        <div class="author">
-            <div class="author-profile">
-                <a target="_blank" :href="author.link">
-                    <img v-if="author.picture?.fields.file.url" 
-                        :alt="author.picture.fields.description" 
-                        :src="author.picture.fields.file.url" />
-                    <h1>{{author.name}}</h1>
-                </a>
-            </div>
+    <div v-if="author" class="author">
+        <div class="author-profile">
+            <a target="_blank" :href="author.link">
+                <img v-if="author.picture?.fields.file.url" 
+                    :alt="author.picture.fields.description" 
+                    :src="author.picture.fields.file.url" />
+                <h1>{{author.name}}</h1>
+            </a>
         </div>
         <template v-if="quotes?.items">
             <h2>Quotes</h2>
@@ -22,7 +20,7 @@
                 <ArticleCard v-for="article in articles.items" :article="article.fields"></ArticleCard>
             </div>
         </template>
-    </template>
+    </div>
     <template v-else>
         <NotFound></NotFound>
     </template>
@@ -60,24 +58,25 @@ const articles = await ContentfulClient.getEntries<Article>({
 <style scoped lang="less">
 .author {
     padding-top: 3rem;
-    max-width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
 
-    &-profile a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
+    &-profile {
+        margin-bottom: 3rem;
 
-        &:hover {
-            opacity: unset;
-        }
+        & a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
 
-        & img {
-            object-fit: cover;
-            width: 6.5rem;
-            height: 6.5rem;
-            margin-right: 0.5rem;
+            &:hover {
+                opacity: unset;
+            }
+
+            & img {
+                object-fit: cover;
+                width: 6.5rem;
+                height: 6.5rem;
+                margin-right: 0.5rem;
+            }
         }
     }
 
