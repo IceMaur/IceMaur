@@ -16,7 +16,7 @@
             </div>
             <div v-if="author.spotifyPlaylistId" class="spotify-card">
                 <h2>Spotify</h2>
-                <iframe class="spotify-card-frame" style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe class="spotify-card-frame" style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 <router-link class="spotify-button" :to="{name: 'spotify',
                     params: {
                         spotifyPlaylistId: author.spotifyPlaylistId
@@ -139,7 +139,7 @@ const articles = await ContentfulClient.getEntries<Article>({
         }
 
         &-frame {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
     }
 
@@ -148,10 +148,8 @@ const articles = await ContentfulClient.getEntries<Article>({
         text-decoration: none;
         background-color: var(--color-main);
         color: var(--color-spotify-secondary);
-        border: 0.25rem solid var(--color-spotify-primary);
-        border-radius: 1rem;
+        border-radius: 2rem;
         padding: 0.825rem 1.825rem;
-        box-shadow: 1px 1px 1rem var(--color-main);
         transition: all .3s;
 
         &:hover {
