@@ -1,9 +1,9 @@
 <template>
     <template v-if="article">
         <img class="article-image" :alt="article.image.fields.title" :src="article.image.fields.file.url" />
-        <div class="article-content">
+        <div class="article">
             <h1>{{article.title}}</h1>
-            <div v-html="articleContent"></div>
+            <div class="article-content" v-html="articleContent"></div>
             <AuthorCard :author="article.author.fields"></AuthorCard>
         </div>
         <div v-if="article.relatedArticles" class="related-articles">
@@ -75,7 +75,7 @@ const articleContent = documentToHtmlString(article?.content, options);
     }
 }
 
-.article-content {
+.article {
     max-width: 40rem;
     margin-left: auto;
     margin-right: auto;

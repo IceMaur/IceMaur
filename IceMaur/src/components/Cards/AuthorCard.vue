@@ -1,12 +1,15 @@
 <template>
     <div v-if="author?.name" class="author-card">
-        <a target="_blank" :href="author.link">
+        <router-link :to="{name: 'author',
+            params: {
+                name: author.name
+            }}">
             <img v-if="author.picture?.fields.file.url" 
                 class="author-card-image" 
                 :alt="author.picture.fields.description" 
                 :src="author.picture.fields.file.url" />
             <h2 class="author-card-name">{{author.name}}</h2>
-        </a>
+        </router-link>
     </div>
 </template>
 
