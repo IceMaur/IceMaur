@@ -66,6 +66,7 @@ const articles = await ContentfulClient.getEntries<Article>({
     padding-top: 3rem;
 
     &-profile {
+        max-width: 650px;
         margin-bottom: 3rem;
 
         & a {
