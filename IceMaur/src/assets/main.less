@@ -85,4 +85,20 @@ figcaption {
     margin-left: 50%;
     transform: translateX(-50%);
   }
+
+  &-quote {
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 2.125rem;
+    border-left: 0.25rem solid var(--color-secondary);
+    padding-left: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+
+    @media (min-width: 768px) {
+      padding-left: 2rem;
+      margin-left: 4rem;
+      margin-right: 6rem;
+    }
+  }
 }

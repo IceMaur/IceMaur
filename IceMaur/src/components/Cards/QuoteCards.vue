@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ContentfulClient from '../../data/ContentfulClient';
 import Quote from '../../objects/Quote';
-import QouteCard from './QouteCard.vue';
+import QuoteCard from './QuoteCard.vue';
 
 const quotes = await ContentfulClient.getEntries<Quote>({
     content_type: 'quote',
@@ -11,7 +11,7 @@ const quotes = await ContentfulClient.getEntries<Quote>({
 <template>
     <h2>Quote cards</h2>
     <div class="quote-cards">
-        <QouteCard v-for="quote in quotes.items" :author="quote.fields.author?.fields">{{(quote.fields.quote)}}</QouteCard>
+        <QuoteCard v-for="quote in quotes.items" :author="quote.fields.author?.fields">{{(quote.fields.quote)}}</QuoteCard>
     </div>
 </template>
 
