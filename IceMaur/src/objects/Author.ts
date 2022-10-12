@@ -5,5 +5,6 @@ export default interface Author {
     title: string,
     picture: contentful.Asset,
     link: string,
-    about: Document
+    about: Document,
+    spotifyPlaylistId: string
 }

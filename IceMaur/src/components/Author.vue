@@ -1,17 +1,23 @@
 <template>
     <div v-if="author" class="author">
-        <div class="author-profile">
-            <a target="_blank" :href="author.link">
-                <img v-if="author.picture?.fields.file.url"
-                    class="author-profile-picture"
-                    :alt="author.picture.fields.description" 
-                    :src="author.picture.fields.file.url" />
-                <div>
-                    <h1 class="author-profile-name">{{author.name}}</h1>
-                    <h2 class="author-profile-title">{{author.title}}</h2>
-                </div>
-            </a>
-            <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)"></div>
+        <div class="author-intro">
+            <div class="author-profile">
+                <a target="_blank" :href="author.link">
+                    <img v-if="author.picture?.fields.file.url"
+                        class="author-profile-picture"
+                        :alt="author.picture.fields.description" 
+                        :src="author.picture.fields.file.url" />
+                    <div>
+                        <h1 class="author-profile-name">{{author.name}}</h1>
+                        <h2 class="author-profile-title">{{author.title}}</h2>
+                    </div>
+                </a>
+                <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)"></div>
+            </div>
+            <div v-if="author.spotifyPlaylistId" class="spotify-card">
+                <h2>Spotify</h2>
+                <iframe style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
         </div>
         <template v-if="quotes?.items?.length">
             <h2>Quotes</h2>
@@ -65,9 +71,15 @@ const articles = await ContentfulClient.getEntries<Article>({
 .author {
     padding-top: 3rem;
 
+    &-intro {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+    }
+
     &-profile {
         max-width: 650px;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
 
         & a {
             display: flex;
@@ -101,6 +113,19 @@ const articles = await ContentfulClient.getEntries<Article>({
     &-quotes {
         display: flex;
         flex-wrap: wrap;
+    }
+}
+
+.spotify-card {
+    padding: 2rem;
+    background-color: var(--color-spotify-primary);
+    border: 0.25rem solid var(--color-spotify-secondary);
+    border-radius: 1rem;
+    margin-left: auto;
+    box-shadow: 1px 1px 2rem var(--color-spotify-primary);
+
+    & h2 {
+        margin-top: 0;
     }
 }
 </style>
