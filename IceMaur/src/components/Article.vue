@@ -48,11 +48,11 @@ const options = {
                     </figure>`;
             }
         },
-        ['embedded-entry-inline']: (node, children) => {
+        ['embedded-entry-inline']: (node: { data: { target: { sys: { contentType: { sys: { id: string; }; }; }; fields: { quote: any; }; }; }; }) => {
             if (node.data.target.sys.contentType.sys.id === 'quote') {
                 return `<div class="article-content-quote"><p>
                         <i class="fa fa-quote-left"></i> ${node.data.target.fields.quote} <i class="fa fa-quote-right"></i>
-                    </p><div/>`;
+                    </p></div>`;
             }
         }
     }
