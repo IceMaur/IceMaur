@@ -4,10 +4,10 @@
             <i class="fa fa-quote-left"></i> <slot></slot> <i class="fa fa-quote-right"></i>
         </p>
         <div v-if="author?.name" class="author">
-            <a target="_blank" :href="author.link">
+            <AuthorLink :authorName="author.name">
                 <h3 class="author-name">{{author.name}}</h3>
                 <img v-if="author.picture?.fields.file.url" class="author-image" :alt="author.picture.fields.description" :src="author.picture.fields.file.url" />
-            </a>
+            </AuthorLink>
         </div>
     </div>
 </template>
@@ -15,6 +15,7 @@
 <script setup lang="ts">
 import { toRefs } from 'vue';
 import Author from '../../objects/Author';
+import AuthorLink from '../links/AuthorLink.vue';
 
 interface Props {
     author?: Author
@@ -42,17 +43,6 @@ const { author } = toRefs(props);
 
     &:hover {
         transform: scale(1.1);
-    }
-
-    & a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-
-        &:hover {
-            opacity: unset;
-        }
     }
 
     & p, 

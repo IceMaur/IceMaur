@@ -1,9 +1,6 @@
 <template>
     <div v-if="author?.name" class="author-card">
-        <router-link :to="{name: 'author',
-            params: {
-                name: author.name
-            }}">
+        <AuthorLink :authorName="author.name">
             <img v-if="author.picture?.fields.file.url" 
                 class="author-card-image" 
                 :alt="author.picture.fields.description" 
@@ -12,13 +9,14 @@
                 <h2 class="author-card-name">{{author.name}}</h2>
                 <h3 class="author-card-title">{{author.title}}</h3>
             </div>
-        </router-link>
+        </AuthorLink>
     </div>
 </template>
 
 <script setup lang="ts">
 import { toRefs } from 'vue';
 import Author from '../../objects/Author';
+import AuthorLink from '../links/AuthorLink.vue';
 
 interface Props {
     author?: Author
@@ -46,17 +44,6 @@ const { author } = toRefs(props);
         border-bottom: 0.5rem solid var(--color-secondary);
         transform: skew(-6deg);
         box-shadow: 0.25rem 0.125rem 1rem var(--color-tertiary);
-    }
-
-    & a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-
-        &:hover {
-            opacity: unset;
-        }
     }
 
     &-image {

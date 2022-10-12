@@ -13,13 +13,13 @@
             </a>
             <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)"></div>
         </div>
-        <template v-if="quotes?.items">
+        <template v-if="quotes?.items?.length">
             <h2>Quotes</h2>
             <div class="author-quotes">
-                <QuoteCard v-for="quote in quotes.items" :author="quote.fields.author.fields">{{quote.fields.quote}}</QuoteCard>
+                <QuoteCard v-for="quote in quotes.items">{{quote.fields.quote}}</QuoteCard>
             </div>
         </template>
-        <template v-if="articles?.items">
+        <template v-if="articles?.items?.length">
             <h2>Articles</h2>
             <div class="author-articles">
                 <ArticleCard v-for="article in articles.items" :article="article.fields"></ArticleCard>
