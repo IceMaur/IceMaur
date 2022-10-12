@@ -53,7 +53,7 @@ header {
   height: 4rem;
 }
 
-#icemaur-body {
+#icemaur-body.author-page {
   background-color: var(--color-secondary);
 }
 
