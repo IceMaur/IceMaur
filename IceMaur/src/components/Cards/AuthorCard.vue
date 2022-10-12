@@ -8,7 +8,10 @@
                 class="author-card-image" 
                 :alt="author.picture.fields.description" 
                 :src="author.picture.fields.file.url" />
-            <h2 class="author-card-name">{{author.name}}</h2>
+            <div>
+                <h2 class="author-card-name">{{author.name}}</h2>
+                <h3 class="author-card-title">{{author.title}}</h3>
+            </div>
         </router-link>
     </div>
 </template>
@@ -28,7 +31,7 @@ const { author } = toRefs(props);
 <style scoped lang="less">
 .author-card {
     background-color: var(--color-main);
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
     width: max-content;
     margin-top: 2rem;
     margin-left: auto;
@@ -61,11 +64,14 @@ const { author } = toRefs(props);
         width: 4rem;
         height: 4rem;
         margin-left: auto;
-        margin-right: 0.5rem;
+        margin-right: 0.625rem;
     }
 
-    &-name {
+    &-name,
+    &-title {
         color: var(--color-primary);
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 </style>
