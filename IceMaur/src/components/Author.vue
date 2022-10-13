@@ -125,7 +125,7 @@ const articles = await ContentfulClient.getEntries<Article>({
 .spotify {
     &-card {
         padding: 2rem;
-        background-color: var(--color-spotify-primary);
+        background: linear-gradient(125deg, var(--color-spotify-primary) 92%, var(--color-main) 8%);
         border: 0.25rem solid var(--color-spotify-secondary);
         border-radius: 1rem;
         margin-left: auto;
