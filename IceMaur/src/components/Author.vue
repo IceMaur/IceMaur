@@ -14,7 +14,7 @@
                 </a>
                 <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)" class="author-profile-content"></div>
             </div>
-            <div>
+            <div class="author-cards">
                 <BrandCard v-if="author.spotifyPlaylistId" title="Spotify">
                     <iframe class="spotify-card-frame" style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     <router-link class="spotify-button" :to="{name: 'spotify',
@@ -122,6 +122,13 @@ const articles = await ContentfulClient.getEntries<Article>({
         &-title {
             font-size: 1rem;
         }
+    }
+
+    &-cards {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 6.5rem;
+        align-self: flex-start;
     }
 
     &-articles,
