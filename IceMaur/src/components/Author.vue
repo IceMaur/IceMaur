@@ -15,8 +15,7 @@
                 <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)"></div>
             </div>
             <div>
-                <div v-if="author.spotifyPlaylistId" class="spotify-card">
-                    <h2>Spotify</h2>
+                <BrandCard v-if="author.spotifyPlaylistId" title="Spotify">
                     <iframe class="spotify-card-frame" style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     <router-link class="spotify-button" :to="{name: 'spotify',
                         params: {
@@ -24,13 +23,12 @@
                         }}">
                         Detail
                     </router-link>
-                </div>
-                <div v-if="author.stackOverflowId" class="stack-overflow-card">
-                    <h2>Stack Overflow</h2>
-                    <a :href="`https://stackoverflow.com/users/${author.stackOverflowId}`" target="_blank">
+                </BrandCard>
+                <BrandCard v-if="author.stackOverflowId" title="Stack Overflow">
+                    <a class="stack-overflow-card-frame" target="_blank" :href="`https://stackoverflow.com/users/${author.stackOverflowId}`">
                         <img :src="`https://stackoverflow.com/users/flair/${author.stackOverflowId}.png?theme=dark`" width="208" height="58">
                     </a>
-                </div>
+                </BrandCard>
             </div>
         </div>
         <template v-if="quotes?.items?.length">
@@ -60,6 +58,7 @@ import Author from '../objects/Author';
 import Article from '../objects/Article';
 import ArticleCard from './Cards/ArticleCard.vue';
 import QuoteCard from './Cards/QuoteCard.vue';
+import BrandCard from './Cards/BrandCard.vue';
 import Quote from '../objects/Quote';
 
 const route = useRoute();
@@ -134,23 +133,9 @@ const articles = await ContentfulClient.getEntries<Article>({
 
 .spotify {
     &-card {
-        padding: 2rem;
-        background: linear-gradient(125deg, var(--color-spotify-primary) 92%, var(--color-main) 8%);
-        border: 0.25rem solid var(--color-spotify-secondary);
-        border-radius: 1rem;
-        margin-left: auto;
-        box-shadow: 1px 1px 2rem var(--color-spotify-primary);
-        text-align: center;
-        max-width: 18rem;
-        margin-bottom: 1rem;
-
-        & h2 {
-            margin-top: 0;
-            text-align: left;
-        }
-
         &-frame {
             margin-bottom: 1rem;
+            box-shadow: 1px 1px 8px var(--color-spotify-secondary);
         }
     }
 
@@ -172,26 +157,17 @@ const articles = await ContentfulClient.getEntries<Article>({
     }
 }
 
-.stack-overflow {
-    &-card {
-        padding: 2rem;
-        background: linear-gradient(125deg, var(--color-stack-overflow-primary) 92%, var(--color-stack-overflow-secondary) 8%);
-        border: 0.25rem solid var(--color-stack-overflow-tertiary);
-        border-radius: 1rem;
-        margin-left: auto;
-        box-shadow: 1px 1px 2rem var(--color-stack-overflow-primary);
-        text-align: center;
-        max-width: 18rem;
-        margin-bottom: 1rem;
+.stack-overflow-card-frame {
+    margin-bottom: 1rem;
+    transition: all .3s;
+    
+    & img {
+        transition: all .3s;
+        box-shadow: 0.5rem 0.25rem 1rem var(--color-stack-overflow-tertiary);
+    }
 
-        & h2 {
-            margin-top: 0;
-            text-align: left;
-        }
-
-        &-frame {
-            margin-bottom: 1rem;
-        }
+    &:hover img {
+        transform: scale(1.1);
     }
 }
 </style>
