@@ -14,15 +14,23 @@
                 </a>
                 <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)"></div>
             </div>
-            <div v-if="author.spotifyPlaylistId" class="spotify-card">
-                <h2>Spotify</h2>
-                <iframe class="spotify-card-frame" style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <router-link class="spotify-button" :to="{name: 'spotify',
-                    params: {
-                        spotifyPlaylistId: author.spotifyPlaylistId
-                    }}">
-                    Detail
-                </router-link>
+            <div>
+                <div v-if="author.spotifyPlaylistId" class="spotify-card">
+                    <h2>Spotify</h2>
+                    <iframe class="spotify-card-frame" style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <router-link class="spotify-button" :to="{name: 'spotify',
+                        params: {
+                            spotifyPlaylistId: author.spotifyPlaylistId
+                        }}">
+                        Detail
+                    </router-link>
+                </div>
+                <div v-if="author.stackOverflowId" class="stack-overflow-card">
+                    <h2>Stack Overflow</h2>
+                    <a :href="`https://stackoverflow.com/users/${author.stackOverflowId}`" target="_blank">
+                        <img :src="`https://stackoverflow.com/users/flair/${author.stackOverflowId}.png?theme=dark`" width="208" height="58">
+                    </a>
+                </div>
             </div>
         </div>
         <template v-if="quotes?.items?.length">
@@ -80,6 +88,8 @@ const articles = await ContentfulClient.getEntries<Article>({
     &-intro {
         display: flex;
         flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
         margin-bottom: 3rem;
     }
 
@@ -132,6 +142,7 @@ const articles = await ContentfulClient.getEntries<Article>({
         box-shadow: 1px 1px 2rem var(--color-spotify-primary);
         text-align: center;
         max-width: 18rem;
+        margin-bottom: 1rem;
 
         & h2 {
             margin-top: 0;
@@ -157,6 +168,29 @@ const articles = await ContentfulClient.getEntries<Article>({
             opacity: unset;
             background-color: var(--color-spotify-secondary);
             color: var(--color-main);
+        }
+    }
+}
+
+.stack-overflow {
+    &-card {
+        padding: 2rem;
+        background: linear-gradient(125deg, var(--color-stack-overflow-primary) 92%, var(--color-stack-overflow-secondary) 8%);
+        border: 0.25rem solid var(--color-stack-overflow-tertiary);
+        border-radius: 1rem;
+        margin-left: auto;
+        box-shadow: 1px 1px 2rem var(--color-stack-overflow-primary);
+        text-align: center;
+        max-width: 18rem;
+        margin-bottom: 1rem;
+
+        & h2 {
+            margin-top: 0;
+            text-align: left;
+        }
+
+        &-frame {
+            margin-bottom: 1rem;
         }
     }
 }
