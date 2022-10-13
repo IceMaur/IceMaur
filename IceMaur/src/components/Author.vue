@@ -12,7 +12,7 @@
                         <h2 class="author-profile-title">{{author.title}}</h2>
                     </div>
                 </a>
-                <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)"></div>
+                <div v-if="author.about?.content" v-html="documentToHtmlString(author.about)" class="author-profile-content"></div>
             </div>
             <div>
                 <BrandCard v-if="author.spotifyPlaylistId" title="Spotify">
