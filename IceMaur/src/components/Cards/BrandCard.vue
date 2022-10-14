@@ -27,13 +27,13 @@ const className = title.value.replace(" ", "-").toLowerCase();
         margin-bottom: 1rem;
 
         &.spotify {
-            background: linear-gradient(125deg, var(--color-spotify-primary) 92%, var(--color-main) 8%);
+            background: linear-gradient(125deg, var(--color-spotify-primary) 50%, var(--color-main) 100%);
             border: 0.25rem solid var(--color-spotify-secondary);
             box-shadow: 1px 1px 2rem var(--color-spotify-primary);
         }
 
         &.stack-overflow {
-            background: linear-gradient(125deg, var(--color-stack-overflow-primary) 92%, var(--color-stack-overflow-secondary) 8%);
+            background: linear-gradient(125deg, var(--color-stack-overflow-primary) 50%, var(--color-stack-overflow-secondary) 100%);
             border: 0.25rem solid var(--color-stack-overflow-tertiary);
             box-shadow: 1px 1px 2rem var(--color-stack-overflow-primary);
         }

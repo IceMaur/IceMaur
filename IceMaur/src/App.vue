@@ -37,14 +37,13 @@ header {
   left: 0;
   width: 100%;
   padding: 0.25rem 2rem;
-  border: 1px var(--color-secondary) solid;
-  background: linear-gradient(125deg, var(--color-main) 70%, var(--color-tertiary) 30%);
+  background: linear-gradient(var(--color-main) 40%, var(--color-tertiary) 80%);
   z-index: 1;
   display: flex;
   align-items: center;
 
   &.spotify {
-    background: linear-gradient(125deg, var(--color-main) 70%, var(--color-spotify-primary) 30%);
+    background: linear-gradient(25deg, var(--color-spotify-secondary) 20%, var(--color-spotify-primary) 90%);
   }
 
   &.author-page {
@@ -61,20 +60,28 @@ header {
   }
 }
 
-#icemaur-body.author-page {
-  background-color: var(--color-secondary);
+#icemaur-body {
+  background: linear-gradient(90deg,var(--color-primary) 75%, var(--color-secondary) 100%);
+
+  &.author-page {
+    background: var(--color-secondary);
+  }
+
+  &.spotify {
+      background: linear-gradient(90deg,var(--color-primary) 50%, var(--color-spotify-secondary) 90%);
+    }
 }
 
 footer {
-  background: linear-gradient(125deg, var(--color-secondary) 70%, var(--color-main) 30%);
+  background: linear-gradient(125deg, var(--color-secondary) 25%, var(--color-main) 100%);
   padding: 1.5rem 2rem 4rem;
 
   &.spotify {
-    background: linear-gradient(125deg, var(--color-spotify-secondary) 70%, var(--color-spotify-primary) 30%);
+    background: linear-gradient(125deg, var(--color-spotify-secondary) 70%, var(--color-spotify-primary) 100%);
   }
 
   &.author-page {
-    background: linear-gradient(125deg, var(--color-tertiary) 70%, var(--color-main) 30%);
+    background: linear-gradient(125deg, var(--color-tertiary) 80%, var(--color-main) 100%);
   }
 }
 </style>
