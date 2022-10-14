@@ -16,7 +16,7 @@
             </div>
             <div class="author-cards">
                 <BrandCard v-if="author.spotifyPlaylistId" title="Spotify">
-                    <iframe class="spotify-card-frame" style="border-radius:12px" :src="`https://open.spotify.com/embed/playlist/${author.spotifyPlaylistId}?utm_source=generator`" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <SpotifyIFrame class="spotify-card-frame" :playlistId="author.spotifyPlaylistId"></SpotifyIFrame>
                     <router-link class="spotify-button" :to="{name: 'spotify',
                         params: {
                             spotifyPlaylistId: author.spotifyPlaylistId
@@ -60,6 +60,7 @@ import ArticleCard from './Cards/ArticleCard.vue';
 import QuoteCard from './Cards/QuoteCard.vue';
 import BrandCard from './Cards/BrandCard.vue';
 import Quote from '../objects/Quote';
+import SpotifyIFrame from './iFrames/SpotifyIFrame.vue';
 
 const route = useRoute();
 const name = route.params.name;
@@ -139,13 +140,6 @@ const articles = await ContentfulClient.getEntries<Article>({
 }
 
 .spotify {
-    &-card {
-        &-frame {
-            margin-bottom: 1rem;
-            box-shadow: 1px 1px 8px var(--color-spotify-secondary);
-        }
-    }
-
     &-button {
         display: inline-block;
         text-decoration: none;

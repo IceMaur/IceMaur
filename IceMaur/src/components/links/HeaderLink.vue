@@ -19,10 +19,6 @@ const href = name.value.replace(" ", "-").toLowerCase();
     margin-left: 1rem;
     margin-right: 1rem;
 
-    &:nth-child(2) {
-        margin-left: auto;
-    }
-
     &:last-of-type {
         margin-right: 5rem;
     }
