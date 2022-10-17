@@ -5,7 +5,7 @@
             }} 
             : {}"
             :disabled="!playlistId"> 
-            Detail
+            <slot>Detail</slot>
     </router-link>
 </template>
 
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    type: "primary",
+    type: "primary"
 });
 const { playlistId, type } = toRefs(props);
 </script>

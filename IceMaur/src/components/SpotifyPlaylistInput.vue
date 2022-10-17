@@ -1,17 +1,25 @@
 <template>
     <div class="spotify-search">
         <input class="spotify-search-input" placeholder="PlaylistId" v-model="playlistId" />
-        <SpotifyPlaylistButton :playlistId="playlistId"></SpotifyPlaylistButton>
+        <SpotifyPlaylistButton :playlistId="playlistId" :type="type"></SpotifyPlaylistButton>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, toRefs } from 'vue';
 import SpotifyPlaylistButton from '../components/buttons/SpotifyPlaylistButton.vue';
+
+interface Props {
+    type: "primary" | "secondary",
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    type: "primary"
+});
+const { type } = toRefs(props);
 
 let playlistId = ref("");
 </script>
-
 
 <style scoped lang="less">
 .spotify-search {
@@ -20,7 +28,6 @@ let playlistId = ref("");
     justify-content: center;
     flex-wrap: wrap;
     max-width: 10rem;
-    margin-top: 3rem;
 
     &-input {
         margin-bottom: 0.5rem;

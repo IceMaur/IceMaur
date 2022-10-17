@@ -21,7 +21,6 @@ const className = title.value.replace(" ", "-").toLowerCase();
     .brand-card {
         padding: 2rem;
         border-radius: 1rem;
-        margin-left: auto;
         text-align: center;
         max-width: 18rem;
         margin-bottom: 1rem;
