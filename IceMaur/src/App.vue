@@ -7,7 +7,7 @@ import { spotifyStore } from './store/spotify.js'
 import SpotifyIFrame from './components/iFrames/SpotifyIFrame.vue';
 
 const route = ref(useRoute());
-const headerLinks = ["Blog"]
+const headerLinks = ["Blog"];
 </script>
 
 <template>

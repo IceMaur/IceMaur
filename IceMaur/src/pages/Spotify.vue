@@ -1,20 +1,68 @@
 <template>
-    <h1>The Spotify playlist</h1>
-    <div style="left: 0; width: 100%; height: 380px; position: relative;"><iframe :src="`https://open.spotify.com/embed/playlist/${spotifyPlaylistId}?utm_source=oembed`" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;"></iframe></div>
-    <h2>Options</h2>
-    <SpotifyToggle :model="spotifyStore.playlistÌdForHeader" :trueValue="spotifyPlaylistId" @change="(value) => spotifyStore.setPlaylistIdForHeader(value)">
-        Show playlist in the header
-    </SpotifyToggle>
-    <SpotifyToggle :model="spotifyStore.playlistÌdForBottom" :trueValue="spotifyPlaylistId" @change="(value) => spotifyStore.setPlaylistIdForBottom(value)">
-        Show playlist in the bottom
-    </SpotifyToggle>
+    <div class="spotify-search">
+        <input class="spotify-search-input" placeholder="PlaylistId" v-model="playlistId" />
+        <router-link class="spotify-button" :to="playlistId ? { name: 'spotify',
+            params: {
+                spotifyPlaylistId: playlistId
+            }} 
+            : {}"
+            :disabled="!playlistId"> 
+            Detail
+        </router-link>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { spotifyStore } from '../store/spotify.js'
-import SpotifyToggle from '../components/toggles/SpotifyToggle.vue';
+import { ref } from 'vue';
 
-const route = useRoute();
-const spotifyPlaylistId = route.params.spotifyPlaylistId as string;
+let playlistId = ref("");
 </script>
+
+
+<style scoped lang="less">
+.spotify {
+    &-search {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 10rem;
+        margin-top: 3rem;
+
+        &-input {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border: 0.125rem solid var(--color-spotify-secondary);
+            color: var(--color-spotify-secondary);
+            border-radius: 0.25rem;
+
+            &:focus-visible {
+                outline: unset;
+                border: 0.125rem solid var(--color-spotify-primary);
+            }
+        }
+    }
+
+    &-button {
+        display: inline-block;
+        text-decoration: none;
+        background-color: var(--color-spotify-primary);
+        color: var(--color-main);
+        border-radius: 2rem;
+        padding: 0.825rem 1.825rem;
+        transition: all .3s;
+
+        &:not([disabled="true"]):hover {
+            text-decoration: none;
+            opacity: unset;
+            background-color: var(--color-main);
+            color: var(--color-spotify-primary);
+        }
+
+        &[disabled="true"] {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+    }
+}
+</style>
