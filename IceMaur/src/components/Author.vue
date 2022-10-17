@@ -17,12 +17,7 @@
             <div class="author-cards">
                 <BrandCard v-if="author.spotifyPlaylistId" title="Spotify">
                     <SpotifyIFrame class="spotify-card-frame" :playlistId="author.spotifyPlaylistId"></SpotifyIFrame>
-                    <router-link class="spotify-button" :to="{name: 'spotify',
-                        params: {
-                            spotifyPlaylistId: author.spotifyPlaylistId
-                        }}">
-                        Detail
-                    </router-link>
+                    <SpotifyPlaylistButton type="secondary" :playlistId="author.spotifyPlaylistId"></SpotifyPlaylistButton>
                 </BrandCard>
                 <BrandCard v-if="author.stackOverflowId" title="Stack Overflow">
                     <a class="stack-overflow-card-frame" target="_blank" :href="`https://stackoverflow.com/users/${author.stackOverflowId}`">
@@ -61,6 +56,7 @@ import QuoteCard from './Cards/QuoteCard.vue';
 import BrandCard from './Cards/BrandCard.vue';
 import Quote from '../objects/Quote';
 import SpotifyIFrame from './iFrames/SpotifyIFrame.vue';
+import SpotifyPlaylistButton from './buttons/SpotifyPlaylistButton.vue';
 
 const route = useRoute();
 const name = route.params.name;
@@ -136,25 +132,6 @@ const articles = await ContentfulClient.getEntries<Article>({
     &-quotes {
         display: flex;
         flex-wrap: wrap;
-    }
-}
-
-.spotify {
-    &-button {
-        display: inline-block;
-        text-decoration: none;
-        background-color: var(--color-main);
-        color: var(--color-spotify-secondary);
-        border-radius: 2rem;
-        padding: 0.825rem 1.825rem;
-        transition: all .3s;
-
-        &:hover {
-            text-decoration: none;
-            opacity: unset;
-            background-color: var(--color-spotify-secondary);
-            color: var(--color-main);
-        }
     }
 }
 
