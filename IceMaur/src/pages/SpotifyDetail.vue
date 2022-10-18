@@ -11,52 +11,21 @@
         </SpotifyToggle>
     </div>
     <h2>Other Playlists</h2>
-    <div class="spotify-playlist-cards">
-        <BrandCard v-for="otherPlaylist in otherPlaylists" class="spotify-playlist-item" title="Spotify">
-            <SpotifyIFrame class="spotify-card-frame" :playlistId="otherPlaylist.id"></SpotifyIFrame>
-            <SpotifyPlaylistButton type="secondary" :playlistId="otherPlaylist.id">{{otherPlaylist.name}}</SpotifyPlaylistButton>
-        </BrandCard>
-        <BrandCard class="spotify-playlist-item" title="Spotify">
-            <SpotifyPlaylistInput type="secondary"></SpotifyPlaylistInput>
-        </BrandCard>
-    </div>
+    <SpotifyPlaylistCards :spotifyPlaylistId="spotifyPlaylistId"></SpotifyPlaylistCards>
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { spotifyStore } from '../store/spotify.js'
 import SpotifyToggle from '../components/toggles/SpotifyToggle.vue';
-import SpotifyPlaylistInput from '../components/SpotifyPlaylistInput.vue';
-import BrandCard from '../components/cards/BrandCard.vue';
-import SpotifyPlaylistButton from '../components/buttons/SpotifyPlaylistButton.vue';
-import SpotifyIFrame from '../components/iFrames/SpotifyIFrame.vue';
+import SpotifyPlaylistCards from '../components/cards/SpotifyPlaylistCards.vue';
 
 const route = useRoute();
 const spotifyPlaylistId = route.params.spotifyPlaylistId as string;
-
-const otherPlaylists = [
-        { id: "1AFisGmwc7zEHbP3MZiyl1", name: "IceMaur"  },
-        { id: "5661esMKH3Wp6Kmx1RJGkW", name: "Pirates"  },
-        { id: "5cNJtY8UgI4CNdgHK2kU1x", name: "COD MW3"  },
-    ].filter(p => p.id !== spotifyPlaylistId);
 </script>
 
 <style scoped lang="less">
-.spotify {
-    &-detail-content {
-        margin-bottom: 3rem;
-    }
-
-    &-playlist {
-        &-cards {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        &-item {
-            margin-right: 1rem;
-            width: 16rem;
-        }
-    }
+.spotify-detail-content {
+    margin-bottom: 3rem;
 }
 </style>
