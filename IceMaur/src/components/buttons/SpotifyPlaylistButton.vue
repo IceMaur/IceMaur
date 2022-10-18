@@ -1,10 +1,10 @@
 <template>
-    <SpotifyButton :type="type" :to="playlistId ? { name: 'spotify',
+    <SpotifyButton :type="type" :to="playlistId?.length === 22 ? { name: 'spotify',
             params: {
                 spotifyPlaylistId: playlistId
             }} 
             : {}"
-            :disabled="!playlistId"> 
+            :disabled="!playlistId || playlistId.length !== 22"> 
             <slot>Detail</slot>
     </SpotifyButton>
 </template>

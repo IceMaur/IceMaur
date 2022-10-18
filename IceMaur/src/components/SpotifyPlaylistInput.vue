@@ -2,6 +2,7 @@
     <div class="spotify-search">
         <input class="spotify-search-input" placeholder="PlaylistId" v-model="playlistId" />
         <SpotifyPlaylistButton :playlistId="playlistId" :type="type"></SpotifyPlaylistButton>
+        <p v-if="playlistId.length > 0 && playlistId.length !== 22" class="error-message">The PlaylistId must has a length of 22 characters</p>
     </div>
 </template>
 
@@ -40,6 +41,10 @@ let playlistId = ref("");
             outline: unset;
             border: 0.125rem solid var(--color-spotify-primary);
         }
+    }
+
+    & .error-message {
+        text-align: center;
     }
 }
 </style>
