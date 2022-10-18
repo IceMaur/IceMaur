@@ -4,7 +4,7 @@
             <SpotifyIFrame class="spotify-card-frame" :playlistId="otherPlaylist.id"></SpotifyIFrame>
             <SpotifyPlaylistButton type="secondary" :playlistId="otherPlaylist.id">{{otherPlaylist.name}}</SpotifyPlaylistButton>
         </BrandCard>
-        <BrandCard class="spotify-playlist-item" title="Spotify">
+        <BrandCard v-if="withPlaylistInput" class="spotify-playlist-item" title="Spotify">
             <SpotifyPlaylistInput type="secondary"></SpotifyPlaylistInput>
         </BrandCard>
     </div>
@@ -18,11 +18,12 @@ import SpotifyPlaylistButton from '../../components/buttons/SpotifyPlaylistButto
 import SpotifyIFrame from '../../components/iFrames/SpotifyIFrame.vue';
 
 interface Props {
-    spotifyPlaylistId?: string
+    spotifyPlaylistId?: string,
+    withPlaylistInput: boolean
 }
 
-const props = defineProps<Props>();
-const { spotifyPlaylistId } = toRefs(props);
+const props = withDefaults(defineProps<Props>(), { withPlaylistInput: true });
+const { spotifyPlaylistId, withPlaylistInput } = toRefs(props);
 
 const otherPlaylists = [
         { id: "1AFisGmwc7zEHbP3MZiyl1", name: "IceMaur"  },
