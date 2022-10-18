@@ -15,12 +15,13 @@ import SpotifyIFrame from './iFrames/SpotifyIFrame.vue';
 .spotify-teaser {
     background: linear-gradient(125deg, var(--color-spotify-primary) 50%, var(--color-main) 100%);
     border-radius: 1rem;
+    max-width: 30rem;
     padding: 1.5rem 2rem 2rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin: 2rem auto 3rem;
 
     @media only screen and (min-width: 768px) {
         padding: 1.5rem 4rem 2rem;
+        margin: 4rem auto 5rem;
     }
 }
 </style>
