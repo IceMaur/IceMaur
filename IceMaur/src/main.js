@@ -8,6 +8,7 @@ import SpotifyDetail from './pages/SpotifyDetail.vue'
 import BlogOverView from './pages/BlogOverView.vue'
 import BlogDetail from './pages/BlogDetail.vue'
 import Author from './pages/Author.vue'
+import Settings from './pages/Settings.vue'
 
 const routes = [
     { path: '/', component: Home },
@@ -16,6 +17,7 @@ const routes = [
     { path: '/blog', component: BlogOverView },
     { path: '/blog/:title', component: BlogDetail, name: "blogDetail" },
     { path: '/author/:name', component: Author, name: "author", meta: { pageClass: 'author-page'}  },
+    { path: '/settings', component: Settings }
   ];
   
 const router = createRouter({

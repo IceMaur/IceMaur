@@ -18,13 +18,18 @@ const href = name.value.replace(" ", "-").toLowerCase();
 .header-link {
     margin-left: 1rem;
     margin-right: 1rem;
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: bold;
 
     &:last-of-type {
         margin-right: 5rem;
     }
+}
 
-    color: var(--color-secondary);
-    text-decoration: none;
-    font-weight: bold;
+.dark {
+    .header-link {
+        color: var(--color-main);
+    }
 }
 </style>
