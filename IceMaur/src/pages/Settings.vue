@@ -7,6 +7,8 @@
     <label for="appearance-dark">Dark</label>
     <input type="radio" id="appearance-spotify" value="spotify" v-model="settingsStore.appearance" />
     <label for="appearance-spotify">Spotify</label>
+    <input type="radio" id="appearance-premium" value="author-page" v-model="settingsStore.appearance" />
+    <label for="appearance-premium">Premium</label>
 </template>
 
 <script setup lang="ts">

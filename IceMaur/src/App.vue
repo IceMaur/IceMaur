@@ -68,13 +68,13 @@ header {
 
 #icemaur-body {
   background: linear-gradient(90deg,var(--color-primary) 75%, var(--color-secondary) 100%);
+  
+  &.spotify {
+    background: linear-gradient(90deg,var(--color-primary) 50%, var(--color-spotify-secondary) 90%);
+  }
 
   &.author-page {
     background: var(--color-secondary);
-  }
-
-  &.spotify {
-      background: linear-gradient(90deg,var(--color-primary) 50%, var(--color-spotify-secondary) 90%);
   }
 
   &.dark {
