@@ -44,6 +44,10 @@ header {
   display: flex;
   align-items: center;
 
+  &.dark {
+    background: linear-gradient(var(--color-primary-dark) 40%, var(--color-secondary-dark) 80%);
+  }
+
   &.spotify {
     background: linear-gradient(25deg, var(--color-spotify-secondary) 20%, var(--color-spotify-primary) 90%);
   }
@@ -51,10 +55,6 @@ header {
   &.author-page {
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
-  }
-
-  &.dark {
-    background: linear-gradient(var(--color-primary-dark) 40%, var(--color-secondary-dark) 80%);
   }
 }
 
@@ -69,16 +69,16 @@ header {
 #icemaur-body {
   background: linear-gradient(90deg,var(--color-primary) 75%, var(--color-secondary) 100%);
   
+  &.dark {
+    background: linear-gradient(90deg,var(--color-secondary) 75%, var(--color-primary) 100%);
+  }
+
   &.spotify {
-    background: linear-gradient(90deg,var(--color-primary) 50%, var(--color-spotify-secondary) 90%);
+    background: linear-gradient(90deg,var(--color-secondary) 50%, var(--color-spotify-secondary) 90%);
   }
 
   &.author-page {
     background: var(--color-secondary);
-  }
-
-  &.dark {
-    background: linear-gradient(90deg,var(--color-secondary) 75%, var(--color-primary) 100%);
   }
 }
 
