@@ -8,5 +8,9 @@ export const spotifyStore = reactive({
   },
   setPlaylistIdForBottom(id) {
     this.playlistÌdForBottom = id;
+  },
+  resetPlaylists() {
+    this.playlistÌdForHeader = null;
+    this.playlistÌdForBottom = null;
   }
 });

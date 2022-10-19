@@ -1,14 +1,17 @@
 <template>
-    <router-link :class="['spotify-button', type]" :to="to"> 
+    <router-link v-if="to" :class="['spotify-button', type]" :to="to"> 
             <slot></slot>
     </router-link>
+    <div v-else :class="['spotify-button', type]" @click="emit('click')"> 
+            <slot></slot>
+    </div>
 </template>
 
 <script setup lang="ts">
 import { toRefs } from 'vue';
 
 interface Props {
-    to: any,
+    to?: any,
     type: "primary" | "secondary",
 }
 
@@ -16,6 +19,10 @@ const props = withDefaults(defineProps<Props>(), {
     type: "primary"
 });
 const { to, type } = toRefs(props);
+
+const emit = defineEmits([
+  "click"
+]);
 </script>
 
 <style scoped lang="less">
@@ -24,6 +31,7 @@ const { to, type } = toRefs(props);
     text-decoration: none;
     border-radius: 2rem;
     padding: 0.825rem 1.825rem;
+    cursor: pointer;
     transition: all .3s;
 
     &:not([disabled="true"]):hover {

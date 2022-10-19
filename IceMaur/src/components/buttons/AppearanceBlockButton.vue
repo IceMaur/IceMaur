@@ -22,9 +22,11 @@ const { value } = toRefs(props);
         &+ label {
             cursor: pointer;
             margin-right: 1rem;
+            margin-bottom: 0.5rem;
             padding: 0.5rem;
             background: var(--color-main);
             color: var(--color-secondary);
+            display: inline-block;
         }
     }
 
