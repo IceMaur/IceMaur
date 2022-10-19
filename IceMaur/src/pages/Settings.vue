@@ -16,7 +16,31 @@ import { settingsStore } from '../store/settings.js'
 </script>
 
 <style scoped lang="less">
-    input[type="radio"] + label {
-        margin-right: 1rem;
+    input[type="radio"] {
+        display: none;
+
+        &+ label {
+            cursor: pointer;
+            margin-right: 1rem;
+            padding: 0.5rem;
+            background: var(--color-main);
+            color: var(--color-secondary);
+        }
+    }
+
+    #appearance-default:checked + label,
+    #appearance-dark:checked + label {
+        background: var(--color-tertiary);
+        color: var(--color-main);
+    }
+
+    #appearance-spotify:checked + label {
+        background: var(--color-spotify-primary);
+        color: var(--color-main);
+    }
+
+    #appearance-premium:checked + label {
+        background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+        color: var(--color-main);
     }
 </style>
