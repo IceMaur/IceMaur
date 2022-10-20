@@ -1,11 +1,11 @@
 <template>
-    <h1>Settings</h1>
-    <h2>Appearance</h2>
+    <h1><i class="fa-solid fa-gear"></i> Settings</h1>
+    <h2><i class="fa-solid fa-brush"></i> Appearance</h2>
     <AppearanceBlockButton>Default</AppearanceBlockButton>
     <AppearanceBlockButton value="dark">Dark</AppearanceBlockButton>
     <AppearanceBlockButton value="spotify">Spotify</AppearanceBlockButton>
     <AppearanceBlockButton value="author-page">Premium</AppearanceBlockButton>
-    <h2>Spotify</h2>
+    <h2><i class="fa-brands fa-spotify"></i> Spotify</h2>
     <ResetSpotifyBannersButton></ResetSpotifyBannersButton>
 </template>
 
