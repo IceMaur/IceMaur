@@ -6,13 +6,10 @@
     <AppearanceBlockButton value="spotify">Spotify</AppearanceBlockButton>
     <AppearanceBlockButton value="author-page">Premium</AppearanceBlockButton>
     <h2>Spotify</h2>
-    <SpotifyButton :disabled="!spotifyStore.playlistÌdForHeader && !spotifyStore.playlistÌdForBottom" @click="spotifyStore.resetPlaylists()">
-        Reset banners
-    </SpotifyButton>
+    <ResetSpotifyBannersButton></ResetSpotifyBannersButton>
 </template>
 
 <script setup lang="ts">
 import AppearanceBlockButton from '../components/buttons/AppearanceBlockButton.vue';
-import SpotifyButton from '../components/buttons/SpotifyButton.vue';
-import { spotifyStore } from '../store/spotify.js'
+import ResetSpotifyBannersButton from '../components/buttons/ResetSpotifyBannersButton.vue'
 </script>
