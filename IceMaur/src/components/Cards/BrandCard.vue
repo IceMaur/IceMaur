@@ -1,6 +1,6 @@
 <template>
     <div :class="[className, 'brand-card']">
-        <h2>{{title}}</h2>
+        <h2><i :class="['fa-brands', `fa-${className}`]"></i> {{title}}</h2>
         <slot></slot>
     </div>
 </template>
@@ -40,6 +40,14 @@ const className = title.value.replace(" ", "-").toLowerCase();
         & h2 {
             margin-top: 0;
             text-align: left;
+        }
+
+        & .fa-spotify {
+            color: var(--color-main);
+        }
+
+        & .fa-stack-overflow {
+            color: var(--color-stack-overflow-secondary);
         }
     }
 </style>

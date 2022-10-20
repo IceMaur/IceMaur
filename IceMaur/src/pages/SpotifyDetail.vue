@@ -1,6 +1,6 @@
 <template>
     <div class="spotify-detail-content">
-        <h1>The Spotify playlist</h1>
+        <SpotfiyH1>The Spotify playlist</SpotfiyH1>
         <div style="left: 0; width: 100%; height: 380px; position: relative;"><iframe :src="`https://open.spotify.com/embed/playlist/${spotifyPlaylistId}?utm_source=oembed`" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;"></iframe></div>
         <h2>Options</h2>
         <SpotifyToggle :model="spotifyStore.playlistÌdForHeader" :trueValue="spotifyPlaylistId" @change="(value) => spotifyStore.setPlaylistIdForHeader(value)">
@@ -19,6 +19,7 @@ import { useRoute } from 'vue-router';
 import { spotifyStore } from '../store/spotify.js'
 import SpotifyToggle from '../components/toggles/SpotifyToggle.vue';
 import SpotifyPlaylistCards from '../components/cards/SpotifyPlaylistCards.vue';
+import SpotfiyH1 from '../components/SpotfiyH1.vue';
 
 const route = useRoute();
 const spotifyPlaylistId = route.params.spotifyPlaylistId as string;

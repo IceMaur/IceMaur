@@ -1,6 +1,6 @@
 <template>
     <div class="spotify-teaser">
-        <h2>Spotify</h2>
+        <h2><i class="fa-brands fa-spotify"></i> Spotify</h2>
         <SpotifyIFrame class="spotify-card-frame" playlistId="1AFisGmwc7zEHbP3MZiyl1"></SpotifyIFrame>
         <SpotifyButton type="secondary" to="/spotify">More</SpotifyButton>
     </div>
@@ -22,6 +22,10 @@ import SpotifyIFrame from './iFrames/SpotifyIFrame.vue';
     @media only screen and (min-width: 768px) {
         padding: 1.5rem 4rem 2rem;
         margin: 4rem auto 5rem;
+    }
+
+    & .fa-spotify {
+        color: var(--color-main);
     }
 }
 </style>

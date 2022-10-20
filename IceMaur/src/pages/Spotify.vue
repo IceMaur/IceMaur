@@ -1,5 +1,5 @@
 <template>
-    <h1>Spotify</h1>
+    <SpotfiyH1></SpotfiyH1>
     <div class="spotify-index-page">
         <SpotifyPlaylistInput></SpotifyPlaylistInput>
     </div>
@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import SpotifyPlaylistInput from '../components/SpotifyPlaylistInput.vue';
 import SpotifyPlaylistCards from '../components/cards/SpotifyPlaylistCards.vue';
+import SpotfiyH1 from '../components/SpotfiyH1.vue';
 </script>
 
 
