@@ -9,7 +9,6 @@ const quotes = await ContentfulClient.getEntries<Quote>({
 </script>
 
 <template>
-    <h2>Quote cards</h2>
     <div class="quote-cards">
         <QuoteCard v-for="quote in quotes.items" :author="quote.fields.author?.fields">{{(quote.fields.quote)}}</QuoteCard>
     </div>

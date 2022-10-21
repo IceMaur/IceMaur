@@ -1,14 +1,13 @@
 <template>
     <div class="spotify-teaser">
         <h2><i class="fa-brands fa-spotify"></i> Spotify</h2>
-        <SpotifyPlaylistIFrame class="spotify-card-frame" playlistId="1AFisGmwc7zEHbP3MZiyl1"></SpotifyPlaylistIFrame>
+        <slot></slot>
         <SpotifyButton type="secondary" to="/spotify">More</SpotifyButton>
     </div>
 </template>
 
 <script setup lang="ts">
 import SpotifyButton from '../components/buttons/SpotifyButton.vue';
-import SpotifyPlaylistIFrame from './iFrames/SpotifyPlaylistIFrame.vue';
 </script>
 
 <style scoped lang="less">
@@ -24,7 +23,7 @@ import SpotifyPlaylistIFrame from './iFrames/SpotifyPlaylistIFrame.vue';
         margin: 4rem auto 5rem;
     }
 
-    & .fa-spotify {
+    .fa-spotify {
         color: var(--color-main);
     }
 }
