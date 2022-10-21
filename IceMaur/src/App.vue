@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import HeaderLink from './components/links/HeaderLink.vue';
 import BrandLink from './components/links/BrandLink.vue';
 import { spotifyStore } from './store/spotify.js'
-import SpotifyIFrame from './components/iFrames/SpotifyIFrame.vue';
+import SpotifyPlaylistIFrame from './components/iFrames/SpotifyPlaylistIFrame.vue';
 import { settingsStore } from './store/settings';
 
 const route = ref(useRoute());
@@ -16,7 +16,7 @@ const headerLinks = ["Blog"];
     <router-link to="/" class="header-logo">
       <img src="./assets/Images/IceMaur.png" />
     </router-link>
-    <SpotifyIFrame v-if="spotifyStore?.playlistÌdForHeader" class="spotify-header-iframe" :playlistId="spotifyStore.playlistÌdForHeader"></SpotifyIFrame>
+    <SpotifyPlaylistIFrame v-if="spotifyStore?.playlistÌdForHeader" class="spotify-header-iframe" :playlistId="spotifyStore.playlistÌdForHeader"></SpotifyPlaylistIFrame>
     <HeaderLink v-for="headerLink in headerLinks" :name="headerLink"></HeaderLink>
     <RouterLink to="/spotify"><i class="fa-brands fa-spotify"></i></RouterLink>
     <RouterLink to="/settings"><i class="fa-solid fa-gear"></i></RouterLink>
@@ -24,7 +24,7 @@ const headerLinks = ["Blog"];
   <div id="icemaur-body" :class="[route?.meta?.pageClass, settingsStore.appearance]">
     <router-view :key="route.path"></router-view>
   </div> 
-  <SpotifyIFrame v-if="spotifyStore?.playlistÌdForBottom" class="spotify-bottom-iframe" :playlistId="spotifyStore.playlistÌdForBottom"></SpotifyIFrame>
+  <SpotifyPlaylistIFrame v-if="spotifyStore?.playlistÌdForBottom" class="spotify-bottom-iframe" :playlistId="spotifyStore.playlistÌdForBottom"></SpotifyPlaylistIFrame>
   <footer :class="[route?.meta?.pageClass, settingsStore.appearance]">
     <h2>Links</h2>
     <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
