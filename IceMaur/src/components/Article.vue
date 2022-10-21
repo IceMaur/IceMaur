@@ -48,11 +48,21 @@ const options = {
                     </figure>`;
             }
         },
-        ['embedded-entry-inline']: (node: { data: { target: { sys: { contentType: { sys: { id: string; }; }; }; fields: { quote: any; }; }; }; }) => {
+        ['embedded-entry-inline']: (node) => {
             if (node.data.target.sys.contentType.sys.id === 'quote') {
                 return `<div class="article-content-quote"><p>
                         <i class="fa fa-quote-left"></i> ${node.data.target.fields.quote} <i class="fa fa-quote-right"></i>
                     </p></div>`;
+            }
+            if (node.data.target.sys.contentType.sys.id === 'spotifyTrack') {
+                return `<iframe style="border-radius:12px" 
+                                src="https://open.spotify.com/embed/track/${node.data.target.fields.id}?utm_source=generator"
+                                width="100%" 
+                                height="352" 
+                                frameBorder="0" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                        </iframe>`;
             }
         }
     }
