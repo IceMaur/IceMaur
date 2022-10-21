@@ -27,14 +27,15 @@ const href = name.value.replace(" ", "-").toLowerCase();
     }
 }
 
-.author-page,
-.dark { 
-    .header-link {
+.dark .header-link {
     color: var(--color-main);
-    }
 }
 
 .spotify .header-link {
     color: var(--color-spotify-secondary);
+}
+
+.author-page .header-link {
+    color: var(--color-main);
 }
 </style>
