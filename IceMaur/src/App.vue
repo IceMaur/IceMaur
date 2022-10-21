@@ -18,6 +18,7 @@ const headerLinks = ["Blog"];
     </router-link>
     <SpotifyIFrame v-if="spotifyStore?.playlistÌdForHeader" class="spotify-header-iframe" :playlistId="spotifyStore.playlistÌdForHeader"></SpotifyIFrame>
     <HeaderLink v-for="headerLink in headerLinks" :name="headerLink"></HeaderLink>
+    <RouterLink to="/spotify"><i class="fa-brands fa-spotify"></i></RouterLink>
     <RouterLink to="/settings"><i class="fa-solid fa-gear"></i></RouterLink>
   </header>
   <div id="icemaur-body" :class="[route?.meta?.pageClass, settingsStore.appearance]">
@@ -38,23 +39,47 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  padding: 0.25rem 2rem;
+  padding: 0.25rem 1rem;
   background: linear-gradient(var(--color-main) 40%, var(--color-tertiary) 80%);
   z-index: 1;
   display: flex;
   align-items: center;
 
+
+  .fa-spotify {
+    color: var(--color-secondary);
+  }
+
   &.dark {
     background: linear-gradient(var(--color-primary-dark) 40%, var(--color-secondary-dark) 80%);
+
+    .fa-gear,
+    .fa-spotify {
+      color: var(--color-main);
+    }
   }
 
   &.spotify {
     background: linear-gradient(25deg, var(--color-spotify-secondary) 20%, var(--color-spotify-primary) 90%);
+
+    .fa-gear,
+    .fa-spotify {
+      color: var(--color-spotify-secondary);
+    }
   }
 
   &.author-page {
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
                 radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+
+    .fa-gear,
+    .fa-spotify {
+      color: var(--color-main);
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 0.25rem 2rem;
   }
 }
 
