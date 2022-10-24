@@ -1,6 +1,6 @@
 <template>
     <SpotifyTeaser v-if="spotifyTrack">
-        <SpotifyTrackIframe class="spotify-card-frame" :trackId="spotifyTrack.fields.id" :height="152"></SpotifyTrackIframe>
+        <SpotifyTrackIframe class="spotify-card-frame" :trackId="spotifyTrack.fields.id"></SpotifyTrackIframe>
     </SpotifyTeaser>
 </template>
 
