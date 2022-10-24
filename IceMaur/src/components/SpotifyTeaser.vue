@@ -17,6 +17,7 @@ import SpotifyButton from '../components/buttons/SpotifyButton.vue';
     max-width: 30rem;
     padding: 1.5rem 2rem 2rem;
     margin: 2rem auto 3rem;
+    box-shadow: 1px 1px 2rem var(--color-spotify-primary);
 
     @media only screen and (min-width: 768px) {
         padding: 1.5rem 4rem 2rem;
