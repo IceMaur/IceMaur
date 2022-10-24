@@ -11,7 +11,7 @@ import { ref, toRefs } from 'vue';
 import SpotifyDetailButton from './buttons/SpotifyDetailButton.vue';
 
 interface Props {
-    type: "primary" | "secondary",
+    type?: "primary" | "secondary",
     to: "spotifyPlaylistDetail" | "spotifyTrackDetail"
 }
 

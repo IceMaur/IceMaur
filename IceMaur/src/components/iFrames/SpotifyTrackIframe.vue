@@ -14,7 +14,7 @@ import { toRefs } from 'vue';
 
 interface Props {
     trackId: string,
-    height: number
+    height?: number
 }
 
 const props = withDefaults(defineProps<Props>(), { height: 152 });

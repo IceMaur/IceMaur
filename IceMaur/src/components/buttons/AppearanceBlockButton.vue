@@ -8,7 +8,7 @@ import { toRefs } from 'vue';
 import { settingsStore } from '../../store/settings.js'
 
 interface Props {
-    value: string
+    value?: string
 }
 
 const props = withDefaults(defineProps<Props>(), { value: ""});

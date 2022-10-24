@@ -12,7 +12,7 @@ import { toRefs } from 'vue';
 
 interface Props {
     to?: any,
-    type: "primary" | "secondary",
+    type?: "primary" | "secondary",
 }
 
 const props = withDefaults(defineProps<Props>(), {

@@ -19,7 +19,7 @@ import SpotifyPlaylistIFrame from '../iFrames/SpotifyPlaylistIFrame.vue';
 
 interface Props {
     spotifyPlaylistId?: string,
-    withPlaylistInput: boolean
+    withPlaylistInput?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), { withPlaylistInput: true });

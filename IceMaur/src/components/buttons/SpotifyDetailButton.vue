@@ -15,7 +15,7 @@ import SpotifyButton from './SpotifyButton.vue';
 
 interface Props {
     id: string,
-    type: "primary" | "secondary",
+    type?: "primary" | "secondary",
     to: "spotifyPlaylistDetail" | "spotifyTrackDetail"
 }
 

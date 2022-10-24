@@ -21,7 +21,7 @@ import SpotifyInput from '../SpotifyInput.vue';
 
 interface Props {
     trackId?: string,
-    withTrackInput: boolean
+    withTrackInput?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), { withTrackInput: true });
