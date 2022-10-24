@@ -7,5 +7,5 @@ export default interface Article {
     image: contentful.Asset,
     content: Document,
     author: contentful.Entry<Author>,
-    relatedArticles: contentful.EntryCollection<Article>
+    relatedArticles: contentful.Entry<Article>[]
 }

@@ -32,16 +32,9 @@
                 <QuoteCard v-for="quote in quotes.items">{{quote.fields.quote}}</QuoteCard>
             </div>
         </template>
-        <template v-if="articles?.items?.length">
-            <h2>Articles</h2>
-            <div class="author-articles">
-                <ArticleCard v-for="article in articles.items" :article="article.fields"></ArticleCard>
-            </div>
-        </template>
+        <Articles v-if="articles?.items?.length" :articles="articles.items"></Articles>
     </div>
-    <template v-else>
-        <NotFound></NotFound>
-    </template>
+    <NotFound v-else></NotFound>
 </template>
 
 <script setup lang="ts">
@@ -51,7 +44,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import NotFound from './NotFound.vue';
 import Author from '../objects/Author';
 import Article from '../objects/Article';
-import ArticleCard from './cards/ArticleCard.vue';
+import Articles from './Articles.vue';
 import QuoteCard from './cards/QuoteCard.vue';
 import BrandCard from './cards/BrandCard.vue';
 import Quote from '../objects/Quote';
@@ -128,7 +121,6 @@ const articles = await ContentfulClient.getEntries<Article>({
         align-self: flex-start;
     }
 
-    &-articles,
     &-quotes {
         display: flex;
         flex-wrap: wrap;

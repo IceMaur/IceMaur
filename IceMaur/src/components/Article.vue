@@ -6,12 +6,7 @@
             <div class="article-content" v-html="articleContent"></div>
             <AuthorCard :author="article.author.fields"></AuthorCard>
         </div>
-        <div v-if="article.relatedArticles" class="related-articles">
-            <h2>Related articles</h2>
-            <div class="related-article-cards">
-                <ArticleCard v-for="relatedArticle in article.relatedArticles" :article="relatedArticle.fields"></ArticleCard>
-            </div>
-        </div>
+        <Articles v-if="article?.relatedArticles?.length" :articles="article.relatedArticles">Related articles</Articles>
     </template>
     <template v-else>
         <NotFound></NotFound>
@@ -25,7 +20,7 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Article from '../objects/Article';
 import AuthorCard from './Cards/AuthorCard.vue';
-import ArticleCard from './Cards/ArticleCard.vue';
+import Articles from './Articles.vue';
 import NotFound from './NotFound.vue';
 
 const route = useRoute();
