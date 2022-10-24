@@ -1,7 +1,7 @@
 <template>
     <div class="spotify-track-cards">
         <BrandCard v-for="spotifyTrack in trackWithoutCurrentTrack" class="spotify-track-item" title="Spotify">
-            <SpotifyTrackIframe class="spotify-track-frame" :trackId="spotifyTrack.fields.id"></SpotifyTrackIframe>
+            <SpotifyTrackIframe class="spotify-card-frame" :trackId="spotifyTrack.fields.id"></SpotifyTrackIframe>
             <SpotifyTrackButton type="secondary" :trackId="spotifyTrack.fields.id">{{spotifyTrack.fields.name}}</SpotifyTrackButton>
         </BrandCard>
     </div>
@@ -40,10 +40,6 @@ const trackWithoutCurrentTrack = spotifyTracks.items.filter(t => t.fields.id !==
         margin-right: 1rem;
         width: 27rem;
         max-width: 100%;
-    }
-
-    &-frame {
-        margin-bottom: 0.5rem;
     }
 }
 </style>

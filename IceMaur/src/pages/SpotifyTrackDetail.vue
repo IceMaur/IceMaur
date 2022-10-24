@@ -2,8 +2,15 @@
     <div class="spotify-detail-content">
         <SpotfiyH1>The Spotify track</SpotfiyH1>
         <SpotifyTrackIframe class="spotify-card-frame" :trackId="spotifyTrackId" :height="352"></SpotifyTrackIframe>
+        <h2>Options</h2>
+        <SpotifyToggle :model="spotifyStore.trackÌdForHeader" :trueValue="spotifyTrackId" @change="(value) => spotifyStore.setTrackIdForHeader(value)">
+            Show track in the header
+        </SpotifyToggle>
+        <SpotifyToggle :model="spotifyStore.trackÌdForBottom" :trueValue="spotifyTrackId" @change="(value) => spotifyStore.setTrackIdForBottom(value)">
+            Show track in the bottom
+        </SpotifyToggle>
     </div>
-    <h2>Other Playlists</h2>
+    <h2>Other Tracks</h2>
     <Suspense>
         <SpotifyTrackCards :trackId="spotifyTrackId"></SpotifyTrackCards>
     </Suspense>
