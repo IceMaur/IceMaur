@@ -1,8 +1,8 @@
 <template>
     <div class="spotify-search">
-        <input class="spotify-search-input" placeholder="PlaylistId" v-model="playlistId" />
-        <SpotifyDetailButton to="spotifyPlaylistDetail" :id="playlistId" :type="type"></SpotifyDetailButton>
-        <p v-if="playlistId.length > 0 && playlistId.length !== 22" class="error-message">The PlaylistId must has a length of 22 characters</p>
+        <input class="spotify-search-input" :placeholder="nameId" v-model="id" />
+        <SpotifyDetailButton :to="to" :id="id" :type="type"></SpotifyDetailButton>
+        <p v-if="id.length > 0 && id.length !== 22" class="error-message">The {{nameId}} must has a length of 22 characters</p>
     </div>
 </template>
 
@@ -12,14 +12,16 @@ import SpotifyDetailButton from './buttons/SpotifyDetailButton.vue';
 
 interface Props {
     type: "primary" | "secondary",
+    to: "spotifyPlaylistDetail" | "spotifyTrackDetail"
 }
 
 const props = withDefaults(defineProps<Props>(), {
     type: "primary"
 });
-const { type } = toRefs(props);
+const { type, to } = toRefs(props);
 
-let playlistId = ref("");
+let id = ref("");
+const nameId = to.value === "spotifyPlaylistDetail" ? "PlaylistId" : "TrackId"
 </script>
 
 <style scoped lang="less">

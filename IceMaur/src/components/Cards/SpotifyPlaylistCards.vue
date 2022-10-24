@@ -5,14 +5,14 @@
             <SpotifyDetailButton type="secondary" to="spotifyPlaylistDetail" :id="otherPlaylist.id">{{otherPlaylist.name}}</SpotifyDetailButton>
         </BrandCard>
         <BrandCard v-if="withPlaylistInput" class="spotify-playlist-item" title="Spotify">
-            <SpotifyPlaylistInput type="secondary"></SpotifyPlaylistInput>
+            <SpotifyInput to="spotifyPlaylistDetail" type="secondary"></SpotifyInput>
         </BrandCard>
     </div>
 </template>
 
 <script setup lang="ts">
 import { toRefs } from 'vue';
-import SpotifyPlaylistInput from '../../components/SpotifyPlaylistInput.vue';
+import SpotifyInput from '../SpotifyInput.vue';
 import BrandCard from '../../components/cards/BrandCard.vue';
 import SpotifyDetailButton from '../buttons/SpotifyDetailButton.vue';
 import SpotifyPlaylistIFrame from '../iFrames/SpotifyPlaylistIFrame.vue';

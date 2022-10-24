@@ -5,7 +5,7 @@
             <SpotifyDetailButton type="secondary" to="spotifyTrackDetail" :id="spotifyTrack.fields.id">{{spotifyTrack.fields.name}}</SpotifyDetailButton>
         </BrandCard>
         <BrandCard v-if="withTrackInput" class="spotify-track-item spotify-track-card-input" title="Spotify">
-            <SpotifyTrackInput type="secondary"></SpotifyTrackInput>
+            <SpotifyInput to="spotifyTrackDetail" type="secondary"></SpotifyInput>
         </BrandCard>
     </div>
 </template>
@@ -17,7 +17,7 @@ import SpotifyTrack from '../../objects/SpotifyTrack';
 import BrandCard from '../../components/cards/BrandCard.vue';
 import SpotifyTrackIframe from '../../components/iFrames/SpotifyTrackIframe.vue';
 import SpotifyDetailButton from '../buttons/SpotifyDetailButton.vue';
-import SpotifyTrackInput from '../SpotifyTrackInput.vue';
+import SpotifyInput from '../SpotifyInput.vue';
 
 interface Props {
     trackId?: string,
