@@ -17,7 +17,7 @@
             <div class="author-cards">
                 <BrandCard v-if="author.spotifyPlaylistId" title="Spotify">
                     <SpotifyPlaylistIFrame class="spotify-card-frame" :playlistId="author.spotifyPlaylistId"></SpotifyPlaylistIFrame>
-                    <SpotifyPlaylistButton type="secondary" :playlistId="author.spotifyPlaylistId"></SpotifyPlaylistButton>
+                    <SpotifyDetailButton type="secondary" to="spotifyPlaylistDetail" :id="author.spotifyPlaylistId"></SpotifyDetailButton>
                 </BrandCard>
                 <BrandCard v-if="author.stackOverflowId" title="Stack Overflow">
                     <a class="stack-overflow-card-frame" target="_blank" :href="`https://stackoverflow.com/users/${author.stackOverflowId}`">
@@ -56,7 +56,7 @@ import QuoteCard from './cards/QuoteCard.vue';
 import BrandCard from './cards/BrandCard.vue';
 import Quote from '../objects/Quote';
 import SpotifyPlaylistIFrame from './iFrames/SpotifyPlaylistIFrame.vue';
-import SpotifyPlaylistButton from './buttons/SpotifyPlaylistButton.vue';
+import SpotifyDetailButton from './buttons/SpotifyDetailButton.vue';
 
 const route = useRoute();
 const name = route.params.name;

@@ -1,14 +1,14 @@
 <template>
     <div class="spotify-search">
         <input class="spotify-search-input" placeholder="TrackId" v-model="trackId" />
-        <SpotifyTrackButton :trackId="trackId" :type="type"></SpotifyTrackButton>
+        <SpotifyDetailButton to="spotifyTrackDetail" :id="trackId" :type="type"></SpotifyDetailButton>
         <p v-if="trackId.length > 0 && trackId.length !== 22" class="error-message">The TrackId must has a length of 22 characters</p>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, toRefs } from 'vue';
-import SpotifyTrackButton from './buttons/SpotifyTrackButton.vue';
+import SpotifyDetailButton from './buttons/SpotifyDetailButton.vue';
 
 interface Props {
     type: "primary" | "secondary",

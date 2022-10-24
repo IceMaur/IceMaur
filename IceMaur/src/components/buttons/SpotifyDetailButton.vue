@@ -1,10 +1,10 @@
 <template>
-    <SpotifyButton :type="type" :to="trackId?.length === 22 ? { name: 'spotifyTrackDetail',
+    <SpotifyButton :type="type" :to="id?.length === 22 ? { name: to,
             params: {
-                spotifyTrackId: trackId
+                id: id
             }} 
             : {}"
-            :disabled="!trackId || trackId.length !== 22">
+            :disabled="!id || id.length !== 22"> 
             <slot>Detail</slot>
     </SpotifyButton>
 </template>
@@ -14,12 +14,13 @@ import { toRefs } from 'vue';
 import SpotifyButton from './SpotifyButton.vue';
 
 interface Props {
-    trackId: string,
+    id: string,
     type: "primary" | "secondary",
+    to: "spotifyPlaylistDetail" | "spotifyTrackDetail"
 }
 
 const props = withDefaults(defineProps<Props>(), {
     type: "primary"
 });
-const { trackId, type } = toRefs(props);
+const { id, type, to } = toRefs(props);
 </script>

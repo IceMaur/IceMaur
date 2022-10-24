@@ -1,18 +1,18 @@
 <template>
     <div class="spotify-detail-content">
         <SpotfiyH1>The Spotify track</SpotfiyH1>
-        <SpotifyTrackIframe class="spotify-card-frame" :trackId="spotifyTrackId" :height="352"></SpotifyTrackIframe>
+        <SpotifyTrackIframe class="spotify-card-frame" :trackId="id" :height="352"></SpotifyTrackIframe>
         <h2>Options</h2>
-        <SpotifyToggle :model="spotifyStore.trackÌdForHeader" :trueValue="spotifyTrackId" @change="(value) => spotifyStore.setTrackIdForHeader(value)">
+        <SpotifyToggle :model="spotifyStore.trackÌdForHeader" :trueValue="id" @change="(value) => spotifyStore.setTrackIdForHeader(value)">
             Show track in the header
         </SpotifyToggle>
-        <SpotifyToggle :model="spotifyStore.trackÌdForBottom" :trueValue="spotifyTrackId" @change="(value) => spotifyStore.setTrackIdForBottom(value)">
+        <SpotifyToggle :model="spotifyStore.trackÌdForBottom" :trueValue="id" @change="(value) => spotifyStore.setTrackIdForBottom(value)">
             Show track in the bottom
         </SpotifyToggle>
     </div>
     <h2>Other Tracks</h2>
     <Suspense>
-        <SpotifyTrackCards :trackId="spotifyTrackId"></SpotifyTrackCards>
+        <SpotifyTrackCards :trackId="id"></SpotifyTrackCards>
     </Suspense>
 </template>
 
@@ -25,7 +25,7 @@ import SpotfiyH1 from '../components/SpotfiyH1.vue';
 import SpotifyTrackIframe from '../components/iFrames/SpotifyTrackIframe.vue';
 
 const route = useRoute();
-const spotifyTrackId = route.params.spotifyTrackId as string;
+const id = route.params.id as string;
 </script>
 
 <style scoped lang="less">
