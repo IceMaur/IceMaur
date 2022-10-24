@@ -1,6 +1,8 @@
 <template>
     <h1>
-        <i class="fa-brands fa-spotify"></i>
+        <RouterLink to="/spotify">
+            <i class="fa-brands fa-spotify"></i>
+        </RouterLink>
         <slot>Spotify</slot>
     </h1>
 </template>
