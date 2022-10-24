@@ -2,11 +2,11 @@
     <iframe
         style="border-radius:12px" 
         width="100%" 
-        height="80" 
         frameBorder="0" 
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
         loading="lazy"
         :class="class" 
+        :height="height"
         :src="`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`">
     </iframe>
 </template>
@@ -16,11 +16,12 @@ import { toRefs } from 'vue';
 
 interface Props {
     playlistId: string,
-    class?: string
+    class?: string,
+    height?: number
 }
 
-const props = defineProps<Props>();
-const { playlistId } = toRefs(props);
+const props = withDefaults(defineProps<Props>(), { height: 80 });
+const { playlistId, height } = toRefs(props);
 </script>
 
 <style scoped lang="less">
