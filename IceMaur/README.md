@@ -27,3 +27,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## CMS
+We use [Contentful](https://www.contentful.com/) for the IceMaur project.
+
+## Spotify
+We use Spotify embeds for the playlists and tracks.
