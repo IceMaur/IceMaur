@@ -3,13 +3,14 @@ import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import HeaderLink from './components/links/HeaderLink.vue';
 import BrandLink from './components/links/BrandLink.vue';
-import { spotifyStore } from './store/spotify.js'
+import { useSpotifyStore } from './store/spotify.js'
 import SpotifyIFrame from './components/iFrames/SpotifyIFrame.vue';
 import { useSettingsStore } from './store/settings';
 
 const route = ref(useRoute());
 const headerLinks = ["Blog"];
 const settingsStore = useSettingsStore();
+const spotifyStore = useSpotifyStore();
 </script>
 
 <template>

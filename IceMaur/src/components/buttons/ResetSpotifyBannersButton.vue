@@ -10,5 +10,7 @@
 
 <script setup lang="ts">
 import SpotifyButton from '../../components/buttons/SpotifyButton.vue';
-import { spotifyStore } from '../../store/spotify.js'
+import { useSpotifyStore } from '../../store/spotify.js'
+
+const spotifyStore = useSpotifyStore();
 </script>

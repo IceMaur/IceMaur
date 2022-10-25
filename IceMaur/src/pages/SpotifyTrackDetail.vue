@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { spotifyStore } from '../store/spotify.js'
+import { useSpotifyStore } from '../store/spotify.js'
 import SpotifyToggle from '../components/toggles/SpotifyToggle.vue';
 import SpotifyTrackCards from '../components/cards/SpotifyTrackCards.vue';
 import SpotfiyH1 from '../components/SpotfiyH1.vue';
@@ -26,6 +26,7 @@ import SpotifyIFrame from '../components/iFrames/SpotifyIFrame.vue';
 
 const route = useRoute();
 const id = route.params.id as string;
+const spotifyStore = useSpotifyStore();
 </script>
 
 <style scoped lang="less">
