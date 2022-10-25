@@ -1,12 +1,12 @@
 <template>
     <SpotifyTeaser v-if="spotifyTrack">
-        <SpotifyTrackIframe class="spotify-card-frame" :trackId="spotifyTrack.fields.id"></SpotifyTrackIframe>
+        <SpotifyIFrame class="spotify-card-frame" type="track" :id="spotifyTrack.fields.id" :height="152"></SpotifyIFrame>
     </SpotifyTeaser>
 </template>
 
 <script setup lang="ts">
 import SpotifyTeaser from '../components/SpotifyTeaser.vue';
-import SpotifyTrackIframe from '../components/iFrames/SpotifyTrackIframe.vue';
+import SpotifyIFrame from '../components/iFrames/SpotifyIFrame.vue';
 import ContentfulClient from '../data/ContentfulClient';
 import Home from '../objects/Home';
 

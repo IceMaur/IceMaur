@@ -1,7 +1,7 @@
 <template>
     <div class="spotify-track-cards">
         <BrandCard v-for="spotifyTrack in trackWithoutCurrentTrack" class="spotify-track-item" title="Spotify">
-            <SpotifyTrackIframe class="spotify-card-frame" :trackId="spotifyTrack.fields.id"></SpotifyTrackIframe>
+            <SpotifyIFrame class="spotify-card-frame" type="track" :id="spotifyTrack.fields.id" :height="152"></SpotifyIFrame>
             <SpotifyDetailButton type="secondary" to="spotifyTrackDetail" :id="spotifyTrack.fields.id">{{spotifyTrack.fields.name}}</SpotifyDetailButton>
         </BrandCard>
         <BrandCard v-if="withTrackInput" class="spotify-track-item spotify-track-card-input" title="Spotify">
@@ -15,7 +15,7 @@ import { toRefs } from 'vue';
 import ContentfulClient from '../../data/ContentfulClient';
 import SpotifyTrack from '../../objects/SpotifyTrack';
 import BrandCard from '../../components/cards/BrandCard.vue';
-import SpotifyTrackIframe from '../../components/iFrames/SpotifyTrackIframe.vue';
+import SpotifyIFrame from '../../components/iFrames/SpotifyIFrame.vue';
 import SpotifyDetailButton from '../buttons/SpotifyDetailButton.vue';
 import SpotifyInput from '../SpotifyInput.vue';
 

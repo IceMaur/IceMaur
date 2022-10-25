@@ -4,9 +4,8 @@ import { useRoute } from 'vue-router';
 import HeaderLink from './components/links/HeaderLink.vue';
 import BrandLink from './components/links/BrandLink.vue';
 import { spotifyStore } from './store/spotify.js'
-import SpotifyPlaylistIFrame from './components/iFrames/SpotifyPlaylistIFrame.vue';
+import SpotifyIFrame from './components/iFrames/SpotifyIFrame.vue';
 import { settingsStore } from './store/settings';
-import SpotifyTrackIframe from './components/iFrames/SpotifyTrackIframe.vue';
 
 const route = ref(useRoute());
 const headerLinks = ["Blog"];
@@ -17,8 +16,8 @@ const headerLinks = ["Blog"];
     <router-link to="/" class="header-logo">
       <img src="./assets/Images/IceMaur.png" />
     </router-link>
-    <SpotifyPlaylistIFrame v-if="spotifyStore?.playlistÌdForHeader" class="spotify-header-iframe" :playlistId="spotifyStore.playlistÌdForHeader"></SpotifyPlaylistIFrame>
-    <SpotifyTrackIframe v-else-if="spotifyStore?.trackÌdForHeader" class="spotify-header-iframe" :trackId="spotifyStore.trackÌdForHeader" :height="80"></SpotifyTrackIframe>
+    <SpotifyIFrame v-if="spotifyStore?.playlistÌdForHeader" class="spotify-header-iframe" type="playlist" :id="spotifyStore.playlistÌdForHeader"></SpotifyIFrame>
+    <SpotifyIFrame v-else-if="spotifyStore?.trackÌdForHeader" class="spotify-header-iframe" type="track" :id="spotifyStore.trackÌdForHeader"></SpotifyIFrame>
     <HeaderLink v-for="headerLink in headerLinks" :name="headerLink"></HeaderLink>
     <RouterLink to="/spotify"><i class="fa-brands fa-spotify"></i></RouterLink>
     <RouterLink to="/settings"><i class="fa-solid fa-gear"></i></RouterLink>
@@ -26,8 +25,8 @@ const headerLinks = ["Blog"];
   <div id="icemaur-body" :class="[route?.meta?.pageClass, settingsStore.appearance]">
     <router-view :key="route.path"></router-view>
   </div> 
-  <SpotifyPlaylistIFrame v-if="spotifyStore?.playlistÌdForBottom" class="spotify-bottom-iframe" :playlistId="spotifyStore.playlistÌdForBottom"></SpotifyPlaylistIFrame>
-  <SpotifyTrackIframe v-else-if="spotifyStore?.trackÌdForBottom" class="spotify-bottom-iframe" :trackId="spotifyStore.trackÌdForBottom" :height="80"></SpotifyTrackIframe>
+  <SpotifyIFrame v-if="spotifyStore?.playlistÌdForBottom" class="spotify-bottom-iframe" type="playlist" :id="spotifyStore.playlistÌdForBottom"></SpotifyIFrame>
+  <SpotifyIFrame v-else-if="spotifyStore?.trackÌdForBottom" class="spotify-bottom-iframe" type="track" :id="spotifyStore.trackÌdForBottom"></SpotifyIFrame>
   <footer :class="[route?.meta?.pageClass, settingsStore.appearance]">
     <h2>Links</h2>
     <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>

@@ -1,7 +1,7 @@
 <template>
     <div class="spotify-detail-content">
         <SpotfiyH1>The Spotify track</SpotfiyH1>
-        <SpotifyTrackIframe class="spotify-card-frame" :trackId="id" :height="352"></SpotifyTrackIframe>
+        <SpotifyIFrame class="spotify-card-frame" type="track" :id="id" :height="352"></SpotifyIFrame>
         <h2>Options</h2>
         <SpotifyToggle :model="spotifyStore.trackÌdForHeader" :trueValue="id" @change="(value) => spotifyStore.setTrackIdForHeader(value)">
             Show track in the header
@@ -22,7 +22,7 @@ import { spotifyStore } from '../store/spotify.js'
 import SpotifyToggle from '../components/toggles/SpotifyToggle.vue';
 import SpotifyTrackCards from '../components/cards/SpotifyTrackCards.vue';
 import SpotfiyH1 from '../components/SpotfiyH1.vue';
-import SpotifyTrackIframe from '../components/iFrames/SpotifyTrackIframe.vue';
+import SpotifyIFrame from '../components/iFrames/SpotifyIFrame.vue';
 
 const route = useRoute();
 const id = route.params.id as string;

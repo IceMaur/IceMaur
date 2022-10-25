@@ -1,11 +1,12 @@
 <template>
-    <iframe style="border-radius:12px" 
-            width="100%" 
-            frameBorder="0" 
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-            loading="lazy"
-            :height="height" 
-            :src="`https://open.spotify.com/embed/track/${trackId}?utm_source=generator`">
+    <iframe
+        style="border-radius:12px" 
+        width="100%" 
+        frameBorder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy"
+        :height="height"
+        :src="`https://open.spotify.com/embed/${type}/${id}?utm_source=generator`">
     </iframe>
 </template>
 
@@ -13,12 +14,13 @@
 import { toRefs } from 'vue';
 
 interface Props {
-    trackId: string,
-    height?: number
+    id: string,
+    height?: number,
+    type: "playlist" | "track"
 }
 
-const props = withDefaults(defineProps<Props>(), { height: 152 });
-const { trackId } = toRefs(props);
+const props = withDefaults(defineProps<Props>(), { height: 80 });
+const { id, height, type } = toRefs(props);
 </script>
 
 <style scoped lang="less">

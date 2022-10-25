@@ -7,7 +7,7 @@
       <QuoteCards></QuoteCards>
     </suspense>
     <SpotifyTeaser>
-      <SpotifyPlaylistIFrame class="spotify-card-frame" playlistId="1AFisGmwc7zEHbP3MZiyl1"></SpotifyPlaylistIFrame>
+      <SpotifyIFrame class="spotify-card-frame" type="playlist" id="1AFisGmwc7zEHbP3MZiyl1"></SpotifyIFrame>
     </SpotifyTeaser>
     <h2>Article cards</h2>
     <suspense>
@@ -19,6 +19,6 @@
 import QuoteCards from '../components/Cards/QuoteCards.vue';
 import ArticleCards from '../components/Cards/ArticleCards.vue';
 import SpotifyTeaser from '../components/SpotifyTeaser.vue';
-import SpotifyPlaylistIFrame from '../components/iFrames/SpotifyPlaylistIFrame.vue';
+import SpotifyIFrame from '../components/iFrames/SpotifyIFrame.vue';
 import SpotifyHomeTrackTeaser from '../components/SpotifyHomeTrackTeaser.vue';
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="spotify-playlist-cards">
         <BrandCard v-for="otherPlaylist in otherPlaylists" class="spotify-playlist-item" title="Spotify">
-            <SpotifyPlaylistIFrame class="spotify-card-frame" :playlistId="otherPlaylist.id"></SpotifyPlaylistIFrame>
+            <SpotifyIFrame class="spotify-card-frame" type="playlist" :id="otherPlaylist.id"></SpotifyIFrame>
             <SpotifyDetailButton type="secondary" to="spotifyPlaylistDetail" :id="otherPlaylist.id">{{otherPlaylist.name}}</SpotifyDetailButton>
         </BrandCard>
         <BrandCard v-if="withPlaylistInput" class="spotify-playlist-item" title="Spotify">
@@ -15,7 +15,7 @@ import { toRefs } from 'vue';
 import SpotifyInput from '../SpotifyInput.vue';
 import BrandCard from '../../components/cards/BrandCard.vue';
 import SpotifyDetailButton from '../buttons/SpotifyDetailButton.vue';
-import SpotifyPlaylistIFrame from '../iFrames/SpotifyPlaylistIFrame.vue';
+import SpotifyIFrame from '../iFrames/SpotifyIFrame.vue';
 
 interface Props {
     spotifyPlaylistId?: string,
