@@ -3,33 +3,23 @@ import { useStorage } from '@vueuse/core'
 
 export const useSpotifyStore = defineStore('spotifyStore', {
   state: () => ({
-    playlistÌdForHeader: useStorage('playlistÌdForHeader', null),
-    playlistÌdForBottom: useStorage('playlistÌdForBottom', null),
-    trackÌdForHeader: useStorage('trackÌdForHeader', null),
-    trackÌdForBottom: useStorage('trackÌdForBottom', null)
+    typeForHeader: useStorage('typeForHeader', 'playlist'),
+    typeForBottom: useStorage('typeForBottom', 'playlist'),
+    idForHeader: useStorage('idForHeader', null),
+    idForBottom: useStorage('idForBottom', null),
   }),
   actions: {
-    setPlaylistIdForHeader(id) {
-      this.trackÌdForHeader = null;
-      this.playlistÌdForHeader = id;
+    setIdForHeader(id, type) {
+      this.typeForHeader = type;
+      this.idForHeader = id;
     },
-    setPlaylistIdForBottom(id) {
-      this.trackÌdForBottom = null;
-      this.playlistÌdForBottom = id;
-    },
-    setTrackIdForHeader(id) {
-      this.playlistÌdForHeader = null;
-      this.trackÌdForHeader = id;
-    },
-    setTrackIdForBottom(id) {
-      this.playlistÌdForBottom = null;
-      this.trackÌdForBottom = id;
+    setIdForBottom(id, type) {
+      this.typeForBottom = type;
+      this.idForBottom = id;
     },
     resetBanners() {
-      this.playlistÌdForHeader = null;
-      this.playlistÌdForBottom = null;
-      this.trackÌdForHeader = null;
-      this.trackÌdForBottom = null;
+      this.idForHeader = null;
+      this.idForBottom = null;
     }
   }
 });

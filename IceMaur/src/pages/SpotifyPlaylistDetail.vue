@@ -3,10 +3,10 @@
         <SpotfiyH1>The Spotify playlist</SpotfiyH1>
         <SpotifyIFrame type="playlist" :id="id" :height="380"></SpotifyIFrame>
         <h2>Options</h2>
-        <SpotifyToggle :model="spotifyStore.playlistÌdForHeader" :trueValue="id" @change="(value) => spotifyStore.setPlaylistIdForHeader(value)">
+        <SpotifyToggle :model="spotifyStore.idForHeader" :trueValue="id" @change="(value) => spotifyStore.setIdForHeader(value, 'playlist')">
             Show playlist in the header
         </SpotifyToggle>
-        <SpotifyToggle :model="spotifyStore.playlistÌdForBottom" :trueValue="id" @change="(value) => spotifyStore.setPlaylistIdForBottom(value)">
+        <SpotifyToggle :model="spotifyStore.idForBottom" :trueValue="id" @change="(value) => spotifyStore.setIdForBottom(value, 'playlist')">
             Show playlist in the bottom
         </SpotifyToggle>
     </div>

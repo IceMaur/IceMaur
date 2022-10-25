@@ -3,7 +3,7 @@
         style="border-radius:12px" 
         width="100%" 
         frameBorder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
         :height="height"
         :src="`https://open.spotify.com/embed/${type}/${id}?utm_source=generator`">
@@ -16,7 +16,7 @@ import { toRefs } from 'vue';
 interface Props {
     id: string,
     height?: number,
-    type: "playlist" | "track"
+    type: string
 }
 
 const props = withDefaults(defineProps<Props>(), { height: 80 });

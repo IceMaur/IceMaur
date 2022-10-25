@@ -1,8 +1,6 @@
 <template>
-    <SpotifyButton :disabled="!spotifyStore.playlistÌdForHeader 
-                        && !spotifyStore.playlistÌdForBottom
-                        && !spotifyStore.trackÌdForHeader
-                        && !spotifyStore.trackÌdForBottom" 
+    <SpotifyButton :disabled="!spotifyStore.idForHeader 
+                        && !spotifyStore.idForBottom" 
                     @click="spotifyStore.resetBanners()">
         Reset banners
     </SpotifyButton>

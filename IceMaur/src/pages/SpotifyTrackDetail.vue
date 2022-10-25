@@ -3,10 +3,10 @@
         <SpotfiyH1>The Spotify track</SpotfiyH1>
         <SpotifyIFrame class="spotify-card-frame" type="track" :id="id" :height="352"></SpotifyIFrame>
         <h2>Options</h2>
-        <SpotifyToggle :model="spotifyStore.trackÌdForHeader" :trueValue="id" @change="(value) => spotifyStore.setTrackIdForHeader(value)">
+        <SpotifyToggle :model="spotifyStore.idForHeader" :trueValue="id" @change="(value) => spotifyStore.setIdForHeader(value, 'track')">
             Show track in the header
         </SpotifyToggle>
-        <SpotifyToggle :model="spotifyStore.trackÌdForBottom" :trueValue="id" @change="(value) => spotifyStore.setTrackIdForBottom(value)">
+        <SpotifyToggle :model="spotifyStore.idForBottom" :trueValue="id" @change="(value) => spotifyStore.setIdForBottom(value, 'track')">
             Show track in the bottom
         </SpotifyToggle>
     </div>
