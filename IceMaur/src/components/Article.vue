@@ -8,9 +8,7 @@
         </div>
         <Articles v-if="article?.relatedArticles?.length" :articles="article.relatedArticles">Related articles</Articles>
     </template>
-    <template v-else>
-        <NotFound></NotFound>
-    </template>
+    <NotFound v-else></NotFound>
 </template>
 
 <script setup lang="ts">
