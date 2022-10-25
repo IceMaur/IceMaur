@@ -3,10 +3,10 @@ import { useStorage } from '@vueuse/core'
 
 export const useSpotifyStore = defineStore('spotifyStore', {
   state: () => ({
-  playlistÌdForHeader: useStorage('playlistÌdForHeader', null),
-  playlistÌdForBottom: useStorage('playlistÌdForBottom', null),
-  trackÌdForHeader: useStorage('trackÌdForHeader', null),
-  trackÌdForBottom: useStorage('trackÌdForBottom', null)
+    playlistÌdForHeader: useStorage('playlistÌdForHeader', null),
+    playlistÌdForBottom: useStorage('playlistÌdForBottom', null),
+    trackÌdForHeader: useStorage('trackÌdForHeader', null),
+    trackÌdForBottom: useStorage('trackÌdForBottom', null)
   }),
   actions: {
     setPlaylistIdForHeader(id) {
