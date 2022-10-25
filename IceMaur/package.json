@@ -10,6 +10,7 @@
     "@contentful/rich-text-html-renderer": "^15.13.1",
     "@types/node": "^18.8.3",
     "@vueform/toggle": "^2.1.2",
+    "@vueuse/core": "^9.3.1",
     "contentful": "^9.2.5",
     "contentful-rich-text-vue-renderer": "^3.0.1",
     "pinia": "^2.0.23",
