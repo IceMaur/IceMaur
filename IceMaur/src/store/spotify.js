@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
+import { useStorage } from '@vueuse/core'
 
 export const useSpotifyStore = defineStore('spotifyStore', {
   state: () => ({
-  playlistÌdForHeader: null,
-  playlistÌdForBottom: null,
-  trackÌdForHeader: null,
-  trackÌdForBottom: null
+  playlistÌdForHeader: useStorage('playlistÌdForHeader', null),
+  playlistÌdForBottom: useStorage('playlistÌdForBottom', null),
+  trackÌdForHeader: useStorage('trackÌdForHeader', null),
+  trackÌdForBottom: useStorage('trackÌdForBottom', null)
   }),
   actions: {
     setPlaylistIdForHeader(id) {
