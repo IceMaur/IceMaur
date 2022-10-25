@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import { toRefs } from 'vue';
-import { settingsStore } from '../../store/settings.js'
+import { useSettingsStore } from '../../store/settings.js'
 
 interface Props {
     value?: string
@@ -13,6 +13,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), { value: ""});
 const { value } = toRefs(props);
+const settingsStore = useSettingsStore();
 </script>
 
 <style scoped lang="less">

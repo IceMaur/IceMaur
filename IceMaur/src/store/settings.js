@@ -1,5 +1,5 @@
-import { reactive } from 'vue'
+import { defineStore } from 'pinia'
 
-export const settingsStore = reactive({
-    appearance: "",
+export const useSettingsStore = defineStore('settings', {
+    state: () => ({ appearance: '' })
 });

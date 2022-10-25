@@ -5,10 +5,11 @@ import HeaderLink from './components/links/HeaderLink.vue';
 import BrandLink from './components/links/BrandLink.vue';
 import { spotifyStore } from './store/spotify.js'
 import SpotifyIFrame from './components/iFrames/SpotifyIFrame.vue';
-import { settingsStore } from './store/settings';
+import { useSettingsStore } from './store/settings';
 
 const route = ref(useRoute());
 const headerLinks = ["Blog"];
+const settingsStore = useSettingsStore();
 </script>
 
 <template>
