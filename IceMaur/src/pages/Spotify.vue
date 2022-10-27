@@ -1,13 +1,13 @@
 <template>
-    <SpotfiyH1></SpotfiyH1>
+    <SpotfiyH1 />
     <div class="spotify-index-page">
-        <SpotifyInput to="spotifyPlaylistDetail"></SpotifyInput>
+        <SpotifyInput to="spotifyPlaylistDetail" />
     </div>
     <h2>Playlists</h2>
-    <SpotifyPlaylistCards :withPlaylistInput="false"></SpotifyPlaylistCards>
+    <SpotifyPlaylistCards :withPlaylistInput="false" />
     <h2>Tracks</h2>
     <Suspense>
-        <SpotifyTrackCards></SpotifyTrackCards>
+        <SpotifyTrackCards />
     </Suspense>
 </template>
 

@@ -18,20 +18,20 @@ const spotifyStore = useSpotifyStore();
     <router-link to="/" class="header-logo">
       <img src="./assets/Images/IceMaur.png" />
     </router-link>
-    <SpotifyIFrame v-if="spotifyStore?.idForHeader" class="spotify-header-iframe" :type="spotifyStore.typeForHeader" :id="spotifyStore.idForHeader"></SpotifyIFrame>
-    <HeaderLink v-for="headerLink in headerLinks" :name="headerLink"></HeaderLink>
+    <SpotifyIFrame v-if="spotifyStore?.idForHeader" class="spotify-header-iframe" :type="spotifyStore.typeForHeader" :id="spotifyStore.idForHeader" />
+    <HeaderLink v-for="headerLink in headerLinks" :name="headerLink" />
     <RouterLink to="/spotify"><i class="fa-brands fa-spotify"></i></RouterLink>
     <RouterLink to="/settings"><i class="fa-solid fa-gear"></i></RouterLink>
   </header>
   <div id="icemaur-body" :class="[route?.meta?.pageClass, settingsStore.appearance]">
-    <router-view :key="route.path"></router-view>
+    <router-view :key="route.path" />
   </div> 
-  <SpotifyIFrame v-if="spotifyStore?.idForBottom" class="spotify-bottom-iframe" :type="spotifyStore.typeForBottom" :id="spotifyStore.idForBottom"></SpotifyIFrame>
+  <SpotifyIFrame v-if="spotifyStore?.idForBottom" class="spotify-bottom-iframe" :type="spotifyStore.typeForBottom" :id="spotifyStore.idForBottom" />
   <footer :class="[route?.meta?.pageClass, settingsStore.appearance]">
     <h2>Links</h2>
-    <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub"></BrandLink>
-    <BrandLink href="https://stackoverflow.com/users/11383638/icemaur" name="Stack Overflow"></BrandLink>
-    <BrandLink href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1" name="Spotify"></BrandLink>
+    <BrandLink href="https://github.com/IceMaur/IceMaur" name="GitHub" />
+    <BrandLink href="https://stackoverflow.com/users/11383638/icemaur" name="Stack Overflow" />
+    <BrandLink href="https://open.spotify.com/playlist/1AFisGmwc7zEHbP3MZiyl1" name="Spotify" />
   </footer>
 </template>
 

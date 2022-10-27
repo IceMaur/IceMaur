@@ -1,9 +1,9 @@
 <template>
     <suspense>
-        <Article></Article>
+        <ArticleDetail />
     </suspense>
 </template>
 
 <script setup lang="ts">
-import Article from '../components/Article.vue';
+import ArticleDetail from '../components/ArticleDetail.vue';
 </script>

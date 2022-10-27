@@ -6,7 +6,7 @@
     <AppearanceBlockButton value="spotify">Spotify</AppearanceBlockButton>
     <AppearanceBlockButton value="author-page">Premium</AppearanceBlockButton>
     <h2><i class="fa-brands fa-spotify"></i> Spotify</h2>
-    <ResetSpotifyBannersButton></ResetSpotifyBannersButton>
+    <ResetSpotifyBannersButton />
 </template>
 
 <script setup lang="ts">

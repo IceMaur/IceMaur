@@ -1,17 +1,17 @@
 <template>
     <h1>The IceMaur</h1>
     <suspense>
-      <SpotifyHomeTrackTeaser></SpotifyHomeTrackTeaser>
+      <SpotifyHomeTrackTeaser />
     </suspense>
     <suspense>
-      <QuoteCards></QuoteCards>
+      <QuoteCards />
     </suspense>
     <SpotifyTeaser>
-      <SpotifyIFrame class="spotify-card-frame" type="playlist" id="1AFisGmwc7zEHbP3MZiyl1"></SpotifyIFrame>
+      <SpotifyIFrame class="spotify-card-frame" type="playlist" id="1AFisGmwc7zEHbP3MZiyl1" />
     </SpotifyTeaser>
     <h2>Article cards</h2>
     <suspense>
-      <ArticleCards :max="4"></ArticleCards>
+      <ArticleCards :max="4" />
     </suspense>
 </template>
 

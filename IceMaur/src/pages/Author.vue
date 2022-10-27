@@ -1,6 +1,6 @@
 <template>
     <suspense>
-        <Author></Author>
+        <Author />
     </suspense>
 </template>
 

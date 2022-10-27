@@ -1,7 +1,7 @@
 <template>
     <div class="spotify-detail-content">
         <SpotfiyH1>The Spotify track</SpotfiyH1>
-        <SpotifyIFrame class="spotify-card-frame" type="track" :id="id" :height="352"></SpotifyIFrame>
+        <SpotifyIFrame class="spotify-card-frame" type="track" :id="id" :height="352" />
         <h2>Options</h2>
         <SpotifyToggle :model="spotifyStore.idForHeader" :trueValue="id" @change="(value) => spotifyStore.setIdForHeader(value, 'track')">
             Show track in the header
@@ -12,7 +12,7 @@
     </div>
     <h2>Other Tracks</h2>
     <Suspense>
-        <SpotifyTrackCards :trackId="id"></SpotifyTrackCards>
+        <SpotifyTrackCards :trackId="id" />
     </Suspense>
 </template>
 
