@@ -15,7 +15,7 @@
 import { useRoute } from 'vue-router';
 import ContentfulClient from '../data/ContentfulClient';
 import { BLOCKS } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToHtmlString, Options } from '@contentful/rich-text-html-renderer';
 import Article from '../objects/Article';
 import AuthorCard from './Cards/AuthorCard.vue';
 import Articles from './Articles.vue';
@@ -58,8 +58,8 @@ const options = {
                         </iframe>`;
             }
         }
-    }
-};
+    } as Options
+} as Partial<Options>;
 const articleContent = documentToHtmlString(article?.content, options);
 </script>
 
