@@ -16,8 +16,8 @@
             </div>
             <div class="author-cards">
                 <BrandCard v-if="author.spotifyPlaylistId" title="Spotify">
-                    <SpotifyIFrame class="spotify-card-frame" type="playlist" :id="author.spotifyPlaylistId"></SpotifyIFrame>
-                    <SpotifyDetailButton type="secondary" to="spotifyPlaylistDetail" :id="author.spotifyPlaylistId"></SpotifyDetailButton>
+                    <SpotifyIFrame class="spotify-card-frame" type="playlist" :id="author.spotifyPlaylistId" />
+                    <SpotifyDetailButton type="secondary" to="spotifyPlaylistDetail" :id="author.spotifyPlaylistId" />
                 </BrandCard>
                 <BrandCard v-if="author.stackOverflowId" title="Stack Overflow">
                     <a class="stack-overflow-card-frame" target="_blank" :href="`https://stackoverflow.com/users/${author.stackOverflowId}`">
@@ -32,9 +32,9 @@
                 <QuoteCard v-for="quote in quotes.items">{{quote.fields.quote}}</QuoteCard>
             </div>
         </template>
-        <Articles v-if="articles?.items?.length" :articles="articles.items"></Articles>
+        <Articles v-if="articles?.items?.length" :articles="articles.items" />
     </div>
-    <NotFound v-else></NotFound>
+    <NotFound v-else />
 </template>
 
 <script setup lang="ts">

@@ -1,11 +1,11 @@
 <template>
     <div class="spotify-playlist-cards">
         <BrandCard v-for="otherPlaylist in otherPlaylists" class="spotify-playlist-item" title="Spotify">
-            <SpotifyIFrame class="spotify-card-frame" type="playlist" :id="otherPlaylist.id"></SpotifyIFrame>
+            <SpotifyIFrame class="spotify-card-frame" type="playlist" :id="otherPlaylist.id" />
             <SpotifyDetailButton type="secondary" to="spotifyPlaylistDetail" :id="otherPlaylist.id">{{otherPlaylist.name}}</SpotifyDetailButton>
         </BrandCard>
         <BrandCard v-if="withPlaylistInput" class="spotify-playlist-item" title="Spotify">
-            <SpotifyInput to="spotifyPlaylistDetail" type="secondary"></SpotifyInput>
+            <SpotifyInput to="spotifyPlaylistDetail" type="secondary" />
         </BrandCard>
     </div>
 </template>

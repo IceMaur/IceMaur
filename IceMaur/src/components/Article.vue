@@ -4,11 +4,11 @@
         <div class="article">
             <h1>{{article.title}}</h1>
             <div class="article-content" v-html="articleContent"></div>
-            <AuthorCard :author="article.author.fields"></AuthorCard>
+            <AuthorCard :author="article.author.fields" />
         </div>
         <Articles v-if="article?.relatedArticles?.length" :articles="article.relatedArticles">Related articles</Articles>
     </template>
-    <NotFound v-else></NotFound>
+    <NotFound v-else />
 </template>
 
 <script setup lang="ts">

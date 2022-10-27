@@ -1,6 +1,6 @@
 <template>
     <div class="article-cards">
-        <ArticleCard v-for="article in articles.items" :article="article.fields"></ArticleCard>
+        <ArticleCard v-for="article in articles.items" :article="article.fields" />
     </div>
 </template>
 

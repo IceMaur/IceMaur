@@ -1,6 +1,6 @@
 <template>
     <div class="spotify-option">
-        <Toggle class="spotify-toggle" v-model="toggleModel" :falseValue="null" :trueValue="trueValue"></Toggle>
+        <Toggle class="spotify-toggle" v-model="toggleModel" :falseValue="null" :trueValue="trueValue" />
         <label><slot></slot></label>
     </div>
 </template>

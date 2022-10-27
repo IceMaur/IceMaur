@@ -1,7 +1,7 @@
 <template>
     <h2><slot>Articles</slot></h2>
     <div class="article-cards">
-        <ArticleCard v-for="article in articles" :article="article.fields"></ArticleCard>
+        <ArticleCard v-for="article in articles" :article="article.fields" />
     </div>
 </template>
 

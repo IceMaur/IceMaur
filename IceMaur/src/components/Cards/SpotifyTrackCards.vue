@@ -1,11 +1,11 @@
 <template>
     <div class="spotify-track-cards">
         <BrandCard v-for="spotifyTrack in trackWithoutCurrentTrack" class="spotify-track-item" title="Spotify">
-            <SpotifyIFrame class="spotify-card-frame" type="track" :id="spotifyTrack.fields.id" :height="152"></SpotifyIFrame>
+            <SpotifyIFrame class="spotify-card-frame" type="track" :id="spotifyTrack.fields.id" :height="152" />
             <SpotifyDetailButton type="secondary" to="spotifyTrackDetail" :id="spotifyTrack.fields.id">{{spotifyTrack.fields.name}}</SpotifyDetailButton>
         </BrandCard>
         <BrandCard v-if="withTrackInput" class="spotify-track-item spotify-track-card-input" title="Spotify">
-            <SpotifyInput to="spotifyTrackDetail" type="secondary"></SpotifyInput>
+            <SpotifyInput to="spotifyTrackDetail" type="secondary" />
         </BrandCard>
     </div>
 </template>
