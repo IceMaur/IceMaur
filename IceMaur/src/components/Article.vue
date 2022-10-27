@@ -30,7 +30,7 @@ const articles = await ContentfulClient.getEntries<Article>({
 const article = articles.items[0]?.fields;
 const options = {
     renderNode: { 
-            [BLOCKS.EMBEDDED_ASSET]: (asset: { data: { target: { fields: { title: any; description: any, file: any; }; }; }; }) => {
+        [BLOCKS.EMBEDDED_ASSET]: (asset: { data: { target: { fields: { title: any; description: any, file: any; }; }; }; }) => {
             const { title, description, file } = asset.data.target.fields;
             const mimeType = file.contentType;
             const mimeGroup = mimeType.split('/')[0];
