@@ -24,6 +24,10 @@ const { id, height, type } = toRefs(props);
 </script>
 
 <style scoped lang="less">
+iframe {
+    max-width: 65rem;
+}
+
 .spotify {
     &-header-iframe {
         max-width: 5rem;
