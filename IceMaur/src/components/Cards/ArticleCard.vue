@@ -73,5 +73,9 @@ const { article } = toRefs(props);
     @media only screen and (min-width: 1200px) {
         --article-max-width: 30%;
     }
+
+    @media only screen and (min-width: 1400px) {
+        --article-max-width: 27rem;
+    }
 }
 </style>
