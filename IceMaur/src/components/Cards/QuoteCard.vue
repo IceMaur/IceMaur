@@ -64,6 +64,10 @@ const { author } = toRefs(props);
     @media only screen and (min-width: 1200px) {
         --quote-max-width: 25%;
     }
+
+    @media only screen and (min-width: 1400px) {
+        --quote-max-width: 30rem;
+    }
 }
 
 .author {
