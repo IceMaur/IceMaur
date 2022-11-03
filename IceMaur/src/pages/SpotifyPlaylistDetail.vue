@@ -2,13 +2,7 @@
     <div class="spotify-detail-content">
         <SpotfiyH1>The Spotify playlist</SpotfiyH1>
         <SpotifyIFrame type="playlist" :id="id" :height="380" />
-        <h2>Options</h2>
-        <SpotifyToggle :model="spotifyStore.idForHeader" :trueValue="id" @change="(value) => spotifyStore.setIdForHeader(value, 'playlist')">
-            Show playlist in the header
-        </SpotifyToggle>
-        <SpotifyToggle :model="spotifyStore.idForBottom" :trueValue="id" @change="(value) => spotifyStore.setIdForBottom(value, 'playlist')">
-            Show playlist in the bottom
-        </SpotifyToggle>
+        <SpotifyOptions type="playlist" :id="id" />
     </div>
     <h2>Other Playlists</h2>
     <SpotifyPlaylistCards :spotifyPlaylistId="id" />
@@ -16,15 +10,13 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { useSpotifyStore } from '../store/spotify.js'
-import SpotifyToggle from '../components/toggles/SpotifyToggle.vue';
 import SpotifyPlaylistCards from '../components/cards/SpotifyPlaylistCards.vue';
 import SpotfiyH1 from '../components/SpotfiyH1.vue';
 import SpotifyIFrame from '../components/iFrames/SpotifyIFrame.vue';
+import SpotifyOptions from '../components/SpotifyOptions.vue';
 
 const route = useRoute();
 const id = route.params.id as string;
-const spotifyStore = useSpotifyStore();
 </script>
 
 <style scoped lang="less">
